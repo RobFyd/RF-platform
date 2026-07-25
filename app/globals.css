@@ -13,6 +13,7 @@
   --grid-line: rgb(255 255 255 / 0.035);
   --soft-detail: rgb(255 255 255 / 0.025);
   --neutral-glow: rgb(255 255 255 / 0.075);
+  --rf-gold-rgb: 226 177 76;
   --header-wash: rgb(8 9 11 / 0.9);
   --icon-filter: invert(1);
   --page-padding: clamp(1.25rem, 4vw, 4.5rem);
@@ -36,8 +37,9 @@ html[data-theme="light"] {
   --grid-line: rgb(17 18 20 / 0.055);
   --soft-detail: rgb(17 18 20 / 0.035);
   --neutral-glow: rgb(17 18 20 / 0.075);
+  --rf-gold-rgb: 174 117 17;
   --header-wash: rgb(242 240 234 / 0.94);
-  --icon-filter: none;
+  --icon-filter: brightness(1);
 }
 
 @theme inline {
@@ -133,6 +135,15 @@ a {
   height: 2.35rem;
   object-fit: contain;
   filter: var(--icon-filter);
+  transition: filter var(--duration-medium) var(--ease-out);
+}
+
+.brand:hover img,
+.brand:focus-visible img {
+  filter:
+    var(--icon-filter)
+    drop-shadow(0 0 0.35rem rgb(var(--rf-gold-rgb) / 0.7))
+    drop-shadow(0 0 0.9rem rgb(var(--rf-gold-rgb) / 0.38));
 }
 
 .site-header nav {
@@ -310,16 +321,55 @@ html[data-theme="light"] .hero-light {
 }
 
 .hero-mark {
+  position: relative;
   display: block;
   width: clamp(8rem, 17vw, 14rem);
   margin-bottom: clamp(1rem, 2.5vw, 2.5rem);
+  isolation: isolate;
+}
+
+.hero-mark::before {
+  position: absolute;
+  z-index: -1;
+  inset: -24%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgb(var(--rf-gold-rgb) / 0.5) 0,
+    rgb(var(--rf-gold-rgb) / 0.2) 36%,
+    transparent 70%
+  );
+  content: "";
+  filter: blur(1.25rem);
+  opacity: 0;
+  transform: scale(0.76);
+  transition:
+    opacity var(--duration-medium) var(--ease-out),
+    transform var(--duration-medium) var(--ease-out);
 }
 
 .hero-mark img {
+  position: relative;
   display: block;
   width: 100%;
   height: auto;
   filter: var(--icon-filter);
+  transition:
+    filter var(--duration-medium) var(--ease-out),
+    transform var(--duration-medium) var(--ease-out);
+}
+
+.hero-mark:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-mark:hover img {
+  filter:
+    var(--icon-filter)
+    drop-shadow(0 0 0.65rem rgb(var(--rf-gold-rgb) / 0.95))
+    drop-shadow(0 0 3.5rem rgb(var(--rf-gold-rgb) / 0.68));
+  transform: scale(1.025);
 }
 
 .hero-statement {
