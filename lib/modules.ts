@@ -1,3 +1,5 @@
+import { assetPath } from "./site-path";
+
 export type ModuleKey = "factory" | "fusion" | "functions";
 
 export type ModuleConfig = {
@@ -23,7 +25,7 @@ export const modules: readonly ModuleConfig[] = [
     name: "RobyFactory",
     shortName: "Factory",
     href: "/factory",
-    logo: "/robyfactory.svg",
+    logo: assetPath("/robyfactory.svg"),
     accent: "#ff7043",
     accentRgb: "255 112 67",
     kicker: "3D printing · CAD · Prototyping",
@@ -47,7 +49,7 @@ export const modules: readonly ModuleConfig[] = [
     name: "RobyFusion",
     shortName: "Fusion",
     href: "/fusion",
-    logo: "/robyfusion.svg",
+    logo: assetPath("/robyfusion.svg"),
     accent: "#4aa8ff",
     accentRgb: "74 168 255",
     kicker: "TIG welding · Fabrication · Metalwork",
@@ -71,7 +73,7 @@ export const modules: readonly ModuleConfig[] = [
     name: "RobyFunctions",
     shortName: "Functions",
     href: "/functions",
-    logo: "/robyfunctions.svg",
+    logo: assetPath("/robyfunctions.svg"),
     accent: "#72f1b8",
     accentRgb: "114 241 184",
     kicker: "Web · AI · Digital tools",

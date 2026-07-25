@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "@/lib/site-path";
 import { InteractiveHero } from "@/components/interactive-hero";
 import { ModulePanels } from "@/components/module-panels";
 import { SiteFooter } from "@/components/site-footer";
@@ -47,7 +48,7 @@ export default function Home() {
             <h1 id="hero-title">
               <span className="hero-mark">
                 <Image
-                  src="/rf-main.svg"
+                  src={assetPath("/rf-main.svg")}
                   alt="//RF"
                   width={1254}
                   height={1254}

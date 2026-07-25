@@ -1,16 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { assetPath } from "@/lib/site-path";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -25,9 +17,9 @@ export const metadata: Metadata = {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/rf-white-sq.svg",
-    shortcut: "/rf-white-sq.svg",
-    apple: "/rf-white-sq.svg",
+    icon: assetPath("/rf-white-sq.svg"),
+    shortcut: assetPath("/rf-white-sq.svg"),
+    apple: assetPath("/rf-white-sq.svg"),
   },
 };
 
@@ -59,7 +51,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
