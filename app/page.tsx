@@ -37,7 +37,6 @@ export default function Home() {
       <SiteHeader />
       <main>
         <InteractiveHero>
-          <div className="hero-light" aria-hidden="true" />
           <div className="technical-grid" aria-hidden="true" />
           <div className="hero-content">
             <p className="eyebrow">
