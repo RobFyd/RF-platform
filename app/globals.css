@@ -759,22 +759,44 @@ html[data-theme="light"] .theme-icon-moon {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1.1rem;
-  border-top: 1px solid var(--line);
+  margin-top: 1.1rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--line);
+  background: rgb(var(--module-accent-rgb) / 0);
   color: var(--muted);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.64rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   transition:
+    background-color var(--duration-fast),
     border-color var(--duration-fast),
-    color var(--duration-fast);
+    box-shadow var(--duration-fast),
+    color var(--duration-fast),
+    transform var(--duration-fast) var(--ease-out);
 }
 
 .module-panel:hover .panel-link,
 .module-panel:focus-within .panel-link {
-  border-color: rgb(var(--module-accent-rgb) / 0.7);
+  border-color: rgb(var(--module-accent-rgb) / 0.55);
+  background: rgb(var(--module-accent-rgb) / 0.08);
   color: var(--module-accent);
+}
+
+.panel-link:hover,
+.panel-link:focus-visible {
+  border-color: var(--module-accent);
+  background: var(--module-accent);
+  box-shadow:
+    0 0 0 1px rgb(var(--module-accent-rgb) / 0.3),
+    0 0 1.8rem rgb(var(--module-accent-rgb) / 0.28);
+  color: #07100e;
+  transform: translateY(-2px);
+}
+
+.panel-link:focus-visible {
+  outline: 2px solid var(--module-accent);
+  outline-offset: 3px;
 }
 
 .intersection-section {
