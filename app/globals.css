@@ -238,8 +238,6 @@ html[data-theme="light"] .theme-icon-moon {
 }
 
 .hero-shell {
-  --pointer-x: 78%;
-  --pointer-y: 18%;
   position: relative;
   display: flex;
   min-height: 100svh;
@@ -258,33 +256,6 @@ html[data-theme="light"] .theme-icon-moon {
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 4.5rem 4.5rem;
   mask-image: linear-gradient(to bottom, transparent 3%, black 35%, transparent);
-}
-
-.hero-light {
-  position: absolute;
-  z-index: -1;
-  top: calc(var(--pointer-y) - min(38rem, 43vw));
-  left: calc(var(--pointer-x) - min(38rem, 43vw));
-  width: min(70rem, 90vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, rgb(95 165 255 / 0.12), transparent 36%),
-    conic-gradient(
-      from 210deg,
-      transparent 0 68%,
-      rgb(255 255 255 / 0.06),
-      transparent 77%
-    );
-  filter: blur(24px);
-  transition:
-    top 900ms var(--ease-out),
-    left 900ms var(--ease-out);
-}
-
-html[data-theme="light"] .hero-light {
-  opacity: 0.7;
-  mix-blend-mode: multiply;
 }
 
 .hero-content {
