@@ -146,6 +146,14 @@ a {
     drop-shadow(0 0 1.2rem rgb(var(--rf-gold-rgb) / 0.58));
 }
 
+.site-header .brand:hover img,
+.site-header .brand:focus-visible img {
+  filter:
+    var(--icon-filter)
+    drop-shadow(0 0 0.55rem rgb(var(--rf-gold-rgb) / 1))
+    drop-shadow(0 0 1.45rem rgb(var(--rf-gold-rgb) / 0.72));
+}
+
 .site-header nav {
   display: flex;
   align-items: center;
