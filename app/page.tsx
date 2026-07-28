@@ -40,7 +40,7 @@ export default function Home() {
           <div className="technical-grid" aria-hidden="true" />
           <div className="hero-content">
             <p className="eyebrow">
-              <span>Robert Fydrych</span>
+              <span>Robert Fydrych //RF</span>
               <span className="eyebrow-line" />
               <span>Designer · Maker · Developer</span>
             </p>
