@@ -1571,6 +1571,7 @@ html[data-theme="light"] .theme-icon-moon {
 
 /* RobyFusion selected work carousel */
 
+.module-page-factory .module-future-work,
 .module-page-fusion .module-future-work {
   display: block;
 }

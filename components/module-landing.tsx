@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { ModuleConfig } from "@/lib/modules";
 import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
+import { FactoryGallery } from "./factory-gallery";
 import { FusionGallery } from "./fusion-gallery";
 
 type ModuleLandingProps = {
@@ -85,7 +86,23 @@ export function ModuleLanding({ moduleConfig }: ModuleLandingProps) {
           className="module-future-work"
           aria-labelledby="selected-work-title"
         >
-          {moduleConfig.key === "fusion" ? (
+          {moduleConfig.key === "factory" ? (
+            <>
+              <div className="fusion-gallery-heading">
+                <div>
+                  <p className="section-index">[ 03 — Selected work ]</p>
+                  <h2 id="selected-work-title">Made to be real.</h2>
+                </div>
+                <div>
+                  <p>
+                    A selection of decorative products, functional prototypes
+                    and custom parts designed and produced with 3D printing.
+                  </p>
+                </div>
+              </div>
+              <FactoryGallery />
+            </>
+          ) : moduleConfig.key === "fusion" ? (
             <>
               <div className="fusion-gallery-heading">
                 <div>
