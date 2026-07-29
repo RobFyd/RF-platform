@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { ModuleConfig } from "@/lib/modules";
 import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
+import { FusionGallery } from "./fusion-gallery";
 
 type ModuleLandingProps = {
   moduleConfig: ModuleConfig;
@@ -80,19 +81,42 @@ export function ModuleLanding({ moduleConfig }: ModuleLandingProps) {
           </ol>
         </section>
 
-        <section className="module-future-work">
-          <div>
-            <p className="section-index">[ 03 — Selected work ]</p>
-            <h2>Project stories are next.</h2>
-            <p>
-              This space is ready for real imagery, outcomes and detailed case
-              studies in the next build stage.
-            </p>
-          </div>
-          <div className="future-work-visual" aria-hidden="true">
-            <span>{moduleConfig.name}</span>
-            <span>Case study placeholder</span>
-          </div>
+        <section
+          className="module-future-work"
+          aria-labelledby="selected-work-title"
+        >
+          {moduleConfig.key === "fusion" ? (
+            <>
+              <div className="fusion-gallery-heading">
+                <div>
+                  <p className="section-index">[ 03 — Selected work ]</p>
+                  <h2 id="selected-work-title">Work in metal.</h2>
+                </div>
+                <div>
+                  <p>
+                    A first look at precision machining, controlled TIG welding
+                    and practical fabrication from the workshop.
+                  </p>
+                </div>
+              </div>
+              <FusionGallery />
+            </>
+          ) : (
+            <>
+              <div>
+                <p className="section-index">[ 03 — Selected work ]</p>
+                <h2 id="selected-work-title">Project stories are next.</h2>
+                <p>
+                  This space is ready for real imagery, outcomes and detailed
+                  case studies in the next build stage.
+                </p>
+              </div>
+              <div className="future-work-visual" aria-hidden="true">
+                <span>{moduleConfig.name}</span>
+                <span>Case study placeholder</span>
+              </div>
+            </>
+          )}
         </section>
 
         <section className="module-bottom-cta">
