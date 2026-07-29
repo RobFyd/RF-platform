@@ -83,7 +83,7 @@ export function FusionGallery() {
           <span aria-hidden="true">←</span>
         </button>
 
-        <div className="fusion-gallery-track">
+        <div className="fusion-gallery-track" style={{ height: "auto" }}>
           {galleryItems.map((item, index) => {
             const position = getRelativePosition(index);
 
@@ -96,6 +96,7 @@ export function FusionGallery() {
                 aria-label={`Show project ${index + 1}: ${item.title}`}
                 aria-current={position === "active" ? "true" : undefined}
                 tabIndex={position === "active" ? 0 : -1}
+                style={{ aspectRatio: "1 / 1", height: "auto" }}
               >
                 <Image
                   src={item.src}
