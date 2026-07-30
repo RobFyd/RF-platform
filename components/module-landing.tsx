@@ -5,6 +5,7 @@ import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
 import { FactoryGallery } from "./factory-gallery";
 import { FusionGallery } from "./fusion-gallery";
+import { FunctionsGallery } from "./functions-gallery";
 
 type ModuleLandingProps = {
   moduleConfig: ModuleConfig;
@@ -120,18 +121,19 @@ export function ModuleLanding({ moduleConfig }: ModuleLandingProps) {
             </>
           ) : (
             <>
-              <div>
-                <p className="section-index">[ 03 — Selected work ]</p>
-                <h2 id="selected-work-title">Project stories are next.</h2>
-                <p>
-                  This space is ready for real imagery, outcomes and detailed
-                  case studies in the next build stage.
-                </p>
+              <div className="fusion-gallery-heading">
+                <div>
+                  <p className="section-index">[ 03 — Selected work ]</p>
+                  <h2 id="selected-work-title">Ideas built in code.</h2>
+                </div>
+                <div>
+                  <p>
+                    Concept visuals exploring modern interfaces, AI-assisted
+                    workflows and practical digital tools for real problems.
+                  </p>
+                </div>
               </div>
-              <div className="future-work-visual" aria-hidden="true">
-                <span>{moduleConfig.name}</span>
-                <span>Case study placeholder</span>
-              </div>
+              <FunctionsGallery />
             </>
           )}
         </section>
