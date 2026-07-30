@@ -1855,3 +1855,297 @@ html[data-theme="light"] .theme-icon-moon {
     grid-row: 1;
   }
 }
+
+
+/* RobyFactory thumbnail carousel and lightbox */
+
+.factory-gallery {
+  position: relative;
+  width: min(100%, 100rem);
+  margin-inline: auto;
+}
+
+.factory-gallery-rail-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr) 3.25rem;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+
+.factory-gallery-rail {
+  display: grid;
+  grid-auto-columns: clamp(15rem, 28vw, 24rem);
+  grid-auto-flow: column;
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  padding: 0.15rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: none;
+}
+
+.factory-gallery-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.factory-gallery-thumbnail {
+  min-width: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  color: var(--foreground);
+  background: var(--surface);
+  cursor: zoom-in;
+  scroll-snap-align: start;
+  text-align: left;
+  transition:
+    border-color var(--duration-fast),
+    box-shadow var(--duration-fast),
+    transform var(--duration-medium) var(--ease-out);
+}
+
+.factory-gallery-thumbnail:hover,
+.factory-gallery-thumbnail:focus-visible {
+  border-color: rgb(var(--module-accent-rgb) / 0.78);
+  box-shadow: 0 0 2rem rgb(var(--module-accent-rgb) / 0.18);
+  transform: translateY(-0.35rem);
+}
+
+.factory-gallery-image {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #08090b;
+}
+
+.factory-gallery-image::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 67%, rgb(3 4 6 / 0.38));
+  content: "";
+  pointer-events: none;
+}
+
+.factory-gallery-image img {
+  object-fit: cover;
+  transition: transform 800ms var(--ease-out), filter var(--duration-medium);
+}
+
+.factory-gallery-thumbnail:hover img,
+.factory-gallery-thumbnail:focus-visible img {
+  filter: saturate(1.08);
+  transform: scale(1.035);
+}
+
+.factory-gallery-thumbnail-copy {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.factory-gallery-thumbnail-copy span,
+.factory-gallery-hint {
+  color: var(--faint);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.59rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.factory-gallery-thumbnail-copy strong {
+  font-size: 0.88rem;
+  font-weight: 480;
+}
+
+.factory-gallery-hint {
+  margin: 1.25rem 4.75rem 0;
+}
+
+.factory-gallery-rail-arrow,
+.factory-lightbox-arrow,
+.factory-lightbox-close {
+  display: grid;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--foreground);
+  background: rgb(8 9 11 / 0.72);
+  cursor: pointer;
+  transition:
+    border-color var(--duration-fast),
+    background-color var(--duration-fast),
+    color var(--duration-fast),
+    transform var(--duration-fast),
+    box-shadow var(--duration-fast);
+}
+
+.factory-gallery-rail-arrow {
+  z-index: 2;
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 1.15rem;
+}
+
+.factory-gallery-rail-arrow:hover,
+.factory-gallery-rail-arrow:focus-visible,
+.factory-lightbox-arrow:hover,
+.factory-lightbox-arrow:focus-visible,
+.factory-lightbox-close:hover,
+.factory-lightbox-close:focus-visible {
+  border-color: var(--module-accent);
+  background: var(--module-accent);
+  box-shadow: 0 0 1.5rem rgb(var(--module-accent-rgb) / 0.32);
+  color: #100a04;
+}
+
+.factory-gallery-rail-arrow.is-left:hover,
+.factory-lightbox-arrow.is-left:hover {
+  transform: translateX(-0.2rem);
+}
+
+.factory-gallery-rail-arrow.is-right:hover,
+.factory-lightbox-arrow.is-right:hover {
+  transform: translateX(0.2rem);
+}
+
+.factory-lightbox {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  grid-template-columns: clamp(3rem, 7vw, 5.5rem) minmax(0, 1fr) clamp(3rem, 7vw, 5.5rem);
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 2rem);
+  padding: clamp(1rem, 3vw, 3rem);
+  background: rgb(2 3 4 / 0.94);
+  backdrop-filter: blur(14px) saturate(0.35);
+  animation: factory-lightbox-in 260ms var(--ease-out);
+}
+
+@keyframes factory-lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.factory-lightbox-content {
+  width: min(100%, 78vh);
+  margin: 0 auto;
+}
+
+.factory-lightbox-image {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid rgb(var(--module-accent-rgb) / 0.62);
+  background: #050608;
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.05),
+    0 0 5rem rgb(var(--module-accent-rgb) / 0.16);
+}
+
+.factory-lightbox-image img {
+  object-fit: contain;
+}
+
+.factory-lightbox-content figcaption {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 1rem;
+  color: #f3f3ef;
+}
+
+.factory-lightbox-content figcaption div {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.factory-lightbox-content figcaption strong {
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: 500;
+}
+
+.factory-lightbox-content figcaption span {
+  color: #8f949b;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.factory-lightbox-arrow {
+  width: clamp(3rem, 5vw, 4rem);
+  height: clamp(3rem, 5vw, 4rem);
+  justify-self: center;
+  font-size: 1.2rem;
+}
+
+.factory-lightbox-close {
+  position: absolute;
+  top: clamp(1rem, 2.5vw, 2rem);
+  right: clamp(1rem, 2.5vw, 2rem);
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+@media (max-width: 620px) {
+  .factory-gallery-rail-shell {
+    grid-template-columns: 2.65rem minmax(0, 1fr) 2.65rem;
+    gap: 0.5rem;
+  }
+
+  .factory-gallery-rail {
+    grid-auto-columns: min(72vw, 20rem);
+  }
+
+  .factory-gallery-rail-arrow {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
+  .factory-gallery-hint {
+    margin-left: 3.15rem;
+  }
+
+  .factory-lightbox {
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    gap: 1rem;
+    padding: 4.5rem 1rem 1.25rem;
+  }
+
+  .factory-lightbox-content {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+  }
+
+  .factory-lightbox-arrow {
+    grid-row: 2;
+  }
+
+  .factory-lightbox-arrow.is-left {
+    justify-self: end;
+  }
+
+  .factory-lightbox-arrow.is-right {
+    justify-self: start;
+  }
+
+  .factory-lightbox-content figcaption {
+    gap: 1rem;
+  }
+
+  .factory-lightbox-content figcaption div > span {
+    display: none;
+  }
+}
