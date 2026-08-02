@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HomePage } from "../page";
+import { HomePage } from "@/components/home-page";
 
 export const metadata: Metadata = {
   title: "//RF — Robert Fydrych",
