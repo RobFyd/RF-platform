@@ -6,12 +6,15 @@ import { SiteHeader } from "./site-header";
 import { FactoryGallery } from "./factory-gallery";
 import { FusionGallery } from "./fusion-gallery";
 import { FunctionsGallery } from "./functions-gallery";
+import { homePath, type Language } from "@/lib/i18n";
 
 type ModuleLandingProps = {
   moduleConfig: ModuleConfig;
+  language?: Language;
 };
 
-export function ModuleLanding({ moduleConfig }: ModuleLandingProps) {
+export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingProps) {
+  const pl = language === "pl";
   return (
     <div
       className={`module-page module-page-${moduleConfig.key}`}
@@ -22,13 +25,13 @@ export function ModuleLanding({ moduleConfig }: ModuleLandingProps) {
         } as React.CSSProperties
       }
     >
-      <SiteHeader />
+      <SiteHeader language={language} currentPath={moduleConfig.href} />
       <main>
         <section className="module-hero" aria-labelledby="module-title">
           <div className="technical-grid" aria-hidden="true" />
           <div className="module-hero-glow" aria-hidden="true" />
           <div className="module-breadcrumb">
-            <Link href="/">{"//RF"}</Link>
+            <Link href={homePath(language)}>{"//RF"}</Link>
             <span aria-hidden="true">/</span>
             <span>{moduleConfig.shortName}</span>
           </div>
@@ -37,7 +40,7 @@ export function ModuleLanding({ moduleConfig }: ModuleLandingProps) {
             <h1 id="module-title">{moduleConfig.name}</h1>
             <p>{moduleConfig.longDescription}</p>
             <a className="module-cta" href="mailto:hello@example.com">
-              Discuss a project
+              {pl ? "Omów projekt" : "Discuss a project"}
               <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -54,8 +57,8 @@ export function ModuleLanding({ moduleConfig }: ModuleLandingProps) {
 
         <section className="module-services" aria-labelledby="services-title">
           <div>
-            <p className="section-index">[ 01 — Capabilities ]</p>
-            <h2 id="services-title">What I can help with.</h2>
+            <p className="section-index">[ 01 — {pl ? "Możliwości" : "Capabilities"} ]</p>
+            <h2 id="services-title">{pl ? "W czym mogę pomóc." : "What I can help with."}</h2>
           </div>
           <ul>
             {moduleConfig.services.map((service, index) => (
@@ -70,8 +73,8 @@ export function ModuleLanding({ moduleConfig }: ModuleLandingProps) {
 
         <section className="module-process" aria-labelledby="process-title">
           <div className="module-process-heading">
-            <p className="section-index">[ 02 — Process ]</p>
-            <h2 id="process-title">Clear from brief to result.</h2>
+            <p className="section-index">[ 02 — {pl ? "Proces" : "Process"} ]</p>
+            <h2 id="process-title">{pl ? "Jasno od założeń do rezultatu." : "Clear from brief to result."}</h2>
           </div>
           <ol>
             {moduleConfig.process.map((step, index) => (
@@ -91,63 +94,60 @@ export function ModuleLanding({ moduleConfig }: ModuleLandingProps) {
             <>
               <div className="fusion-gallery-heading">
                 <div>
-                  <p className="section-index">[ 03 — Selected work ]</p>
-                  <h2 id="selected-work-title">Made to be real.</h2>
+                  <p className="section-index">[ 03 — {pl ? "Wybrane realizacje" : "Selected work"} ]</p>
+                  <h2 id="selected-work-title">{pl ? "Pomysły w realnej formie." : "Made to be real."}</h2>
                 </div>
                 <div>
                   <p>
-                    A selection of decorative products, functional prototypes
-                    and custom parts designed and produced with 3D printing.
+                    {pl ? "Wybrane produkty dekoracyjne, funkcjonalne prototypy i części na zamówienie zaprojektowane oraz wykonane w technologii druku 3D." : "A selection of decorative products, functional prototypes and custom parts designed and produced with 3D printing."}
                   </p>
                 </div>
               </div>
-              <FactoryGallery />
+              <FactoryGallery language={language} />
             </>
           ) : moduleConfig.key === "fusion" ? (
             <>
               <div className="fusion-gallery-heading">
                 <div>
-                  <p className="section-index">[ 03 — Selected work ]</p>
-                  <h2 id="selected-work-title">Work in metal.</h2>
+                  <p className="section-index">[ 03 — {pl ? "Wybrane realizacje" : "Selected work"} ]</p>
+                  <h2 id="selected-work-title">{pl ? "Praca w metalu." : "Work in metal."}</h2>
                 </div>
                 <div>
                   <p>
-                    A first look at precision machining, controlled TIG welding
-                    and practical fabrication from the workshop.
+                    {pl ? "Przykłady precyzyjnej obróbki, kontrolowanego spawania TIG i praktycznej produkcji warsztatowej." : "A first look at precision machining, controlled TIG welding and practical fabrication from the workshop."}
                   </p>
                 </div>
               </div>
-              <FusionGallery />
+              <FusionGallery language={language} />
             </>
           ) : (
             <>
               <div className="fusion-gallery-heading">
                 <div>
-                  <p className="section-index">[ 03 — Selected work ]</p>
-                  <h2 id="selected-work-title">Ideas built in code.</h2>
+                  <p className="section-index">[ 03 — {pl ? "Wybrane koncepcje" : "Selected work"} ]</p>
+                  <h2 id="selected-work-title">{pl ? "Pomysły zbudowane w kodzie." : "Ideas built in code."}</h2>
                 </div>
                 <div>
                   <p>
-                    Concept visuals exploring modern interfaces, AI-assisted
-                    workflows and practical digital tools for real problems.
+                    {pl ? "Koncepcje nowoczesnych interfejsów, procesów wspieranych przez AI i praktycznych narzędzi cyfrowych." : "Concept visuals exploring modern interfaces, AI-assisted workflows and practical digital tools for real problems."}
                   </p>
                 </div>
               </div>
-              <FunctionsGallery />
+              <FunctionsGallery language={language} />
             </>
           )}
         </section>
 
         <section className="module-bottom-cta">
-          <p>Have something specific in mind?</p>
-          <h2>Let&apos;s make it real.</h2>
+          <p>{pl ? "Masz na myśli coś konkretnego?" : "Have something specific in mind?"}</p>
+          <h2>{pl ? "Zrealizujmy to." : "Let's make it real."}</h2>
           <a className="text-link" href="mailto:hello@example.com">
-            Start a conversation
+            {pl ? "Rozpocznij rozmowę" : "Start a conversation"}
             <span aria-hidden="true">↗</span>
           </a>
         </section>
       </main>
-      <SiteFooter />
+      <SiteFooter language={language} />
     </div>
   );
 }

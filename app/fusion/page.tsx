@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "RobyFusion — TIG Welding & Fabrication",
   description:
     "TIG welding, stainless steel, aluminium and practical fabrication by Robert Fydrych.",
+  alternates: { canonical: "/fusion", languages: { en: "/fusion", pl: "/pl/fusion" } },
 };
 
 export default function Page() {

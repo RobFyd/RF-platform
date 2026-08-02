@@ -179,6 +179,30 @@ a {
   gap: clamp(0.75rem, 1.5vw, 1.4rem);
 }
 
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5rem;
+  min-height: 2.5rem;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-geist-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.language-toggle span { opacity: 0.48; }
+.language-toggle .is-current { color: var(--text); opacity: 1; }
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  border-color: var(--text);
+  color: var(--text);
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+}
+
 .theme-toggle {
   position: relative;
   display: grid;

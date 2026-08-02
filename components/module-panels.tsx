@@ -4,9 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { modules } from "@/lib/modules";
+import { localizedPath, type Language, ui } from "@/lib/i18n";
 
-export function ModulePanels() {
+export function ModulePanels({ language = "en" }: { language?: Language }) {
   const [activePanel, setActivePanel] = useState<string | null>(null);
+  const copy = ui[language];
+  const localizedModules = modules[language];
 
   return (
     <div
@@ -14,7 +17,7 @@ export function ModulePanels() {
       data-active={activePanel ?? undefined}
       onMouseLeave={() => setActivePanel(null)}
     >
-      {modules.map((moduleConfig) => (
+      {localizedModules.map((moduleConfig) => (
         <article
           className={`module-panel module-panel-${moduleConfig.key}`}
           key={moduleConfig.key}
@@ -58,10 +61,10 @@ export function ModulePanels() {
           </div>
           <Link
             className="panel-link"
-            href={moduleConfig.href}
-            aria-label={`Explore ${moduleConfig.name}`}
+            href={localizedPath(language, moduleConfig.href)}
+            aria-label={`${copy.explore} ${moduleConfig.name}`}
           >
-            <span>Explore {moduleConfig.shortName}</span>
+            <span>{copy.explore} {moduleConfig.shortName}</span>
             <span aria-hidden="true">↗</span>
           </Link>
         </article>

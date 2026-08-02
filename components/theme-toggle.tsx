@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = "rf-theme";
 
-export function ThemeToggle() {
+export function ThemeToggle({ label = "Toggle day or night mode" }: { label?: string }) {
   function toggleTheme() {
     const nextTheme =
       document.documentElement.dataset.theme === "light" ? "dark" : "light";
@@ -16,8 +16,8 @@ export function ThemeToggle() {
       className="theme-toggle"
       type="button"
       onClick={toggleTheme}
-      aria-label="Toggle day or night mode"
-      title="Toggle day or night mode"
+      aria-label={label}
+      title={label}
     >
       <span className="theme-icon theme-icon-sun" aria-hidden="true">
         ☀

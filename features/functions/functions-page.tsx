@@ -1,6 +1,7 @@
 import { ModuleLanding } from "@/components/module-landing";
 import { getModule } from "@/lib/modules";
+import type { Language } from "@/lib/i18n";
 
-export function FunctionsPage() {
-  return <ModuleLanding moduleConfig={getModule("functions")} />;
+export function FunctionsPage({ language = "en" }: { language?: Language }) {
+  return <ModuleLanding moduleConfig={getModule("functions", language)} language={language} />;
 }
