@@ -66,9 +66,6 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
             </video>
           ) : null}
           <div className="panel-visual" aria-hidden="true">
-            <div className="visual-orbit visual-orbit-one" />
-            <div className="visual-orbit visual-orbit-two" />
-            <div className="visual-core" />
             <span className="visual-code">&lt;/&gt;</span>
             <span className="visual-arc" />
           </div>
