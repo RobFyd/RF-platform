@@ -2,14 +2,29 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { modules } from "@/lib/modules";
 import { localizedPath, type Language, ui } from "@/lib/i18n";
+import { assetPath } from "@/lib/site-path";
 
 export function ModulePanels({ language = "en" }: { language?: Language }) {
   const [activePanel, setActivePanel] = useState<string | null>(null);
+  const factoryVideoRef = useRef<HTMLVideoElement>(null);
   const copy = ui[language];
   const localizedModules = modules[language];
+
+  useEffect(() => {
+    const video = factoryVideoRef.current;
+    if (!video) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (activePanel === "factory" && !reduceMotion) {
+      void video.play().catch(() => undefined);
+    } else {
+      video.pause();
+      video.currentTime = 0;
+    }
+  }, [activePanel]);
 
   return (
     <div
@@ -36,6 +51,20 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
             }
           }}
         >
+          {moduleConfig.key === "factory" ? (
+            <video
+              ref={factoryVideoRef}
+              className="panel-background-video"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              <source src={assetPath("/videos/factoryV-reversed.mp4")} type="video/mp4" />
+            </video>
+          ) : null}
           <div className="panel-visual" aria-hidden="true">
             <div className="visual-orbit visual-orbit-one" />
             <div className="visual-orbit visual-orbit-two" />
