@@ -19,10 +19,10 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (activePanel === "factory" && !reduceMotion) {
+      video.currentTime = 0;
       void video.play().catch(() => undefined);
     } else {
       video.pause();
-      video.currentTime = 0;
     }
   }, [activePanel]);
 
@@ -56,7 +56,6 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
               ref={factoryVideoRef}
               className="panel-background-video"
               muted
-              loop
               playsInline
               preload="metadata"
               aria-hidden="true"
