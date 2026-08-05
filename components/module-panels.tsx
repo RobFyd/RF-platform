@@ -10,19 +10,26 @@ import { assetPath } from "@/lib/site-path";
 export function ModulePanels({ language = "en" }: { language?: Language }) {
   const [activePanel, setActivePanel] = useState<string | null>(null);
   const factoryVideoRef = useRef<HTMLVideoElement>(null);
+  const fusionVideoRef = useRef<HTMLVideoElement>(null);
   const copy = ui[language];
   const localizedModules = modules[language];
 
   useEffect(() => {
-    const video = factoryVideoRef.current;
-    if (!video) return;
-
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (activePanel === "factory" && !reduceMotion) {
-      video.currentTime = 0;
-      void video.play().catch(() => undefined);
-    } else {
-      video.pause();
+    const panelVideos = [
+      ["factory", factoryVideoRef.current],
+      ["fusion", fusionVideoRef.current],
+    ] as const;
+
+    for (const [panel, video] of panelVideos) {
+      if (!video) continue;
+
+      if (activePanel === panel && !reduceMotion) {
+        video.currentTime = 0;
+        void video.play().catch(() => undefined);
+      } else {
+        video.pause();
+      }
     }
   }, [activePanel]);
 
@@ -51,9 +58,9 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
             }
           }}
         >
-          {moduleConfig.key === "factory" ? (
+          {moduleConfig.key === "factory" || moduleConfig.key === "fusion" ? (
             <video
-              ref={factoryVideoRef}
+              ref={moduleConfig.key === "factory" ? factoryVideoRef : fusionVideoRef}
               className="panel-background-video"
               muted
               playsInline
@@ -61,7 +68,14 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
               aria-hidden="true"
               tabIndex={-1}
             >
-              <source src={assetPath("/videos/factoryV-reversed.mp4")} type="video/mp4" />
+              <source
+                src={assetPath(
+                  moduleConfig.key === "factory"
+                    ? "/videos/factoryV-reversed.mp4"
+                    : "/videos/fusion-hover.mp4",
+                )}
+                type="video/mp4"
+              />
             </video>
           ) : null}
           <div className="panel-visual" aria-hidden="true">

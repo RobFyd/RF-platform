@@ -593,7 +593,9 @@ html[data-theme="light"] .theme-icon-moon {
 }
 
 .module-panel-factory:hover .panel-background-video,
-.module-panel-factory:focus-within .panel-background-video {
+.module-panel-factory:focus-within .panel-background-video,
+.module-panel-fusion:hover .panel-background-video,
+.module-panel-fusion:focus-within .panel-background-video {
   opacity: 1;
   transform: scale(1);
 }
