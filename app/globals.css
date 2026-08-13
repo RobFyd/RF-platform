@@ -638,7 +638,6 @@ html[data-theme="light"] .theme-icon-moon {
 
 .visual-orbit,
 .visual-core,
-.visual-arc,
 .visual-code {
   position: absolute;
   display: none;
@@ -678,30 +677,6 @@ html[data-theme="light"] .theme-icon-moon {
     0 0 2rem rgb(var(--module-accent-rgb) / 0.2),
     inset 0 0 1rem rgb(var(--module-accent-rgb) / 0.16);
   transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.module-panel-fusion .visual-arc {
-  display: block;
-  right: 0;
-  bottom: 18%;
-  width: 100%;
-  height: 48%;
-  border-bottom: 1px solid rgb(var(--module-accent-rgb) / 0.8);
-  background:
-    radial-gradient(
-      ellipse at 65% 100%,
-      rgb(255 255 255 / 0.92) 0 0.5%,
-      rgb(var(--module-accent-rgb) / 0.72) 0.8%,
-      transparent 8%
-    ),
-    conic-gradient(
-      from 258deg at 65% 100%,
-      transparent,
-      rgb(var(--module-accent-rgb) / 0.18),
-      transparent 13%
-    );
-  filter: drop-shadow(0 0 1.5rem rgb(var(--module-accent-rgb) / 0.65));
-  transform: skewX(-11deg);
 }
 
 .module-panel-functions .visual-code {
