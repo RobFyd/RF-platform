@@ -80,7 +80,6 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
           ) : null}
           <div className="panel-visual" aria-hidden="true">
             <span className="visual-code">&lt;/&gt;</span>
-            <span className="visual-arc" />
           </div>
           <div className="panel-topline">
             <span>{moduleConfig.index}</span>
