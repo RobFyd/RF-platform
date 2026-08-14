@@ -11,6 +11,7 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
   const [activePanel, setActivePanel] = useState<string | null>(null);
   const factoryVideoRef = useRef<HTMLVideoElement>(null);
   const fusionVideoRef = useRef<HTMLVideoElement>(null);
+  const functionsVideoRef = useRef<HTMLVideoElement>(null);
   const copy = ui[language];
   const localizedModules = modules[language];
 
@@ -19,6 +20,7 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
     const panelVideos = [
       ["factory", factoryVideoRef.current],
       ["fusion", fusionVideoRef.current],
+      ["functions", functionsVideoRef.current],
     ] as const;
 
     for (const [panel, video] of panelVideos) {
@@ -58,26 +60,32 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
             }
           }}
         >
-          {moduleConfig.key === "factory" || moduleConfig.key === "fusion" ? (
-            <video
-              ref={moduleConfig.key === "factory" ? factoryVideoRef : fusionVideoRef}
-              className="panel-background-video"
-              muted
-              playsInline
-              preload="metadata"
-              aria-hidden="true"
-              tabIndex={-1}
-            >
-              <source
-                src={assetPath(
-                  moduleConfig.key === "factory"
-                    ? "/videos/factoryV-reversed.mp4"
-                    : "/videos/fusion-hover.mp4",
-                )}
-                type="video/mp4"
-              />
-            </video>
-          ) : null}
+          <video
+            ref={
+              moduleConfig.key === "factory"
+                ? factoryVideoRef
+                : moduleConfig.key === "fusion"
+                  ? fusionVideoRef
+                  : functionsVideoRef
+            }
+            className="panel-background-video"
+            muted
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            tabIndex={-1}
+          >
+            <source
+              src={assetPath(
+                moduleConfig.key === "factory"
+                  ? "/videos/factoryV-reversed.mp4"
+                  : moduleConfig.key === "fusion"
+                    ? "/videos/fusion-hover.mp4"
+                    : "/videos/functions-hover.mp4",
+              )}
+              type="video/mp4"
+            />
+          </video>
           <div className="panel-visual" aria-hidden="true">
             <span className="visual-code">&lt;/&gt;</span>
           </div>
