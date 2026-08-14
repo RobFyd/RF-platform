@@ -86,9 +86,6 @@ export function ModulePanels({ language = "en" }: { language?: Language }) {
               type="video/mp4"
             />
           </video>
-          <div className="panel-visual" aria-hidden="true">
-            <span className="visual-code">&lt;/&gt;</span>
-          </div>
           <div className="panel-topline">
             <span>{moduleConfig.index}</span>
             <span>{moduleConfig.kicker}</span>
