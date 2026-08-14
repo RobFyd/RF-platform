@@ -639,8 +639,7 @@ html[data-theme="light"] .theme-icon-moon {
 }
 
 .visual-orbit,
-.visual-core,
-.visual-code {
+.visual-core {
   position: absolute;
   display: none;
 }
@@ -679,20 +678,6 @@ html[data-theme="light"] .theme-icon-moon {
     0 0 2rem rgb(var(--module-accent-rgb) / 0.2),
     inset 0 0 1rem rgb(var(--module-accent-rgb) / 0.16);
   transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.module-panel-functions .visual-code {
-  top: 30%;
-  left: 50%;
-  display: block;
-  color: rgb(var(--module-accent-rgb) / 0.38);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: clamp(7rem, 14vw, 13rem);
-  font-weight: 250;
-  letter-spacing: -0.12em;
-  line-height: 1;
-  text-shadow: 0 0 2.5rem rgb(var(--module-accent-rgb) / 0.18);
-  transform: translate(-52%, -50%);
 }
 
 .panel-topline {
