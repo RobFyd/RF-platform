@@ -733,9 +733,6 @@ html[data-theme="light"] .theme-icon-moon {
 
 .module-panel:hover .module-icon-placeholder,
 .module-panel:focus-within .module-icon-placeholder {
-  box-shadow:
-    0 0 0 1px rgb(var(--module-accent-rgb) / 0.9),
-    0 0 5rem rgb(var(--module-accent-rgb) / 0.45);
   transform: scale(1.05);
 }
 
