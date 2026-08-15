@@ -1277,6 +1277,145 @@ html[data-theme="light"] .theme-icon-moon {
   border-top: 1px solid var(--line);
 }
 
+.module-credentials {
+  padding: var(--section-space) var(--page-padding);
+  border-top: 1px solid var(--line);
+}
+
+.module-credentials-heading {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: end;
+  gap: clamp(3rem, 8vw, 8rem);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.module-credentials-heading h2 {
+  margin: 2rem 0 0;
+  font-size: clamp(2rem, 4.6vw, 4.8rem);
+  font-weight: 520;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.module-credentials-heading > p {
+  max-width: 32rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.credential-card {
+  position: relative;
+  display: flex;
+  min-height: 28rem;
+  flex-direction: column;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgb(var(--module-accent-rgb) / 0.035), transparent 42%),
+    var(--surface);
+  transition:
+    border-color var(--duration-fast),
+    background-color var(--duration-medium);
+}
+
+.credential-card:hover {
+  border-color: rgb(var(--module-accent-rgb) / 0.5);
+}
+
+.credential-card-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--faint);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.credential-document {
+  position: relative;
+  width: min(8.5rem, 42%);
+  aspect-ratio: 4 / 5;
+  margin: auto;
+  border: 1px solid rgb(var(--module-accent-rgb) / 0.48);
+  background:
+    linear-gradient(var(--line-strong), var(--line-strong)) 50% 25% / 46% 1px no-repeat,
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 0.9rem,
+      var(--line) 0.9rem calc(0.9rem + 1px)
+    ) 50% 43% / 62% 3.6rem no-repeat,
+    rgb(var(--module-accent-rgb) / 0.025);
+  transition: transform var(--duration-medium) var(--ease-out);
+}
+
+.credential-document::before,
+.credential-document::after {
+  position: absolute;
+  content: "";
+}
+
+.credential-document::before {
+  top: 9%;
+  left: 50%;
+  width: 1.4rem;
+  aspect-ratio: 1;
+  border: 1px solid rgb(var(--module-accent-rgb) / 0.7);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.credential-document::after {
+  right: 12%;
+  bottom: 10%;
+  width: 2.2rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--module-accent);
+  border-radius: 50%;
+  background: rgb(var(--module-accent-rgb) / 0.08);
+}
+
+.credential-document span {
+  position: absolute;
+  right: 1.05rem;
+  bottom: 0.4rem;
+  width: 1px;
+  height: 1.2rem;
+  background: var(--module-accent);
+  opacity: 0.65;
+  transform: rotate(-24deg);
+}
+
+.credential-card:hover .credential-document {
+  transform: translateY(-0.35rem);
+}
+
+.credential-card h3 {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  font-weight: 500;
+}
+
+.credential-card > p {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
 .module-bottom-cta > p {
   margin: 0 0 1.5rem;
   color: var(--faint);
@@ -1363,8 +1502,17 @@ html[data-theme="light"] .theme-icon-moon {
 
   .intersection-section,
   .module-services,
-  .module-future-work {
+  .module-future-work,
+  .module-credentials-heading {
     grid-template-columns: 1fr;
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .credential-card {
+    min-height: 24rem;
   }
 
   .section-heading-row {
@@ -1565,6 +1713,10 @@ html[data-theme="light"] .theme-icon-moon {
 
   .future-work-visual {
     min-height: 23rem;
+  }
+
+  .credential-card {
+    min-height: 21rem;
   }
 }
 
