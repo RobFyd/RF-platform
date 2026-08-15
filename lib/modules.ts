@@ -17,6 +17,7 @@ export type ModuleConfig = {
   longDescription: string;
   services: readonly string[];
   process: readonly string[];
+  credentialAreas: readonly string[];
 };
 
 const shared = {
@@ -59,6 +60,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       longDescription: "Custom 3D printing, CAD design and reverse engineering for functional parts, creative projects and practical problems.",
       services: ["Custom 3D Printing", "CAD Design", "Reverse Engineering", "Prototyping", "Cosplay Parts", "Functional Replacement Parts"],
       process: ["Define the need", "Design and validate", "Print and refine"],
+      credentialAreas: ["CAD & design", "Additive manufacturing", "Engineering & production"],
     },
     {
       ...shared.fusion,
@@ -68,6 +70,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       longDescription: "Practical fabrication and TIG welding backed by production experience, technical drawings and careful finishing.",
       services: ["TIG Welding", "Stainless Steel", "Aluminium", "Fabrication", "Technical Drawings", "Production and Repair Work"],
       process: ["Review requirements", "Prepare and fabricate", "Inspect and finish"],
+      credentialAreas: ["Welding qualifications", "Fabrication & inspection", "Safety & compliance"],
     },
     {
       ...shared.functions,
@@ -77,6 +80,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       longDescription: "Modern web development, automation and digital experimentation combining clear design with useful technology.",
       services: ["Web Development", "Frontend Development", "AI Tools", "Automations", "Digital Experiments", "Portfolio Projects"],
       process: ["Understand the goal", "Prototype the system", "Build and improve"],
+      credentialAreas: ["Web development", "Frontend & UX", "AI & automation"],
     },
   ],
   pl: [
@@ -88,6 +92,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       longDescription: "Druk 3D na zamówienie, projektowanie CAD i inżynieria odwrotna dla części funkcjonalnych, projektów kreatywnych i praktycznych problemów.",
       services: ["Druk 3D na zamówienie", "Projektowanie CAD", "Inżynieria odwrotna", "Prototypowanie", "Elementy cosplay", "Funkcjonalne części zamienne"],
       process: ["Określenie potrzeby", "Projekt i weryfikacja", "Druk i dopracowanie"],
+      credentialAreas: ["CAD i projektowanie", "Technologie przyrostowe", "Inżynieria i produkcja"],
     },
     {
       ...shared.fusion,
@@ -97,6 +102,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       longDescription: "Praktyczna produkcja i spawanie TIG poparte doświadczeniem, dokumentacją techniczną i dbałością o wykończenie.",
       services: ["Spawanie TIG", "Stal nierdzewna", "Aluminium", "Produkcja konstrukcji", "Rysunki techniczne", "Produkcja i naprawy"],
       process: ["Analiza wymagań", "Przygotowanie i wykonanie", "Kontrola i wykończenie"],
+      credentialAreas: ["Kwalifikacje spawalnicze", "Produkcja i kontrola", "Bezpieczeństwo i zgodność"],
     },
     {
       ...shared.functions,
@@ -106,6 +112,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       longDescription: "Nowoczesne aplikacje webowe, automatyzacje i cyfrowe eksperymenty łączące przejrzysty design z użyteczną technologią.",
       services: ["Tworzenie stron internetowych", "Frontend", "Narzędzia AI", "Automatyzacje", "Eksperymenty cyfrowe", "Projekty portfolio"],
       process: ["Zrozumienie celu", "Prototyp systemu", "Budowa i rozwój"],
+      credentialAreas: ["Tworzenie stron", "Frontend i UX", "AI i automatyzacja"],
     },
   ],
 };
