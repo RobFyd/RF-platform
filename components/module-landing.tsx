@@ -138,6 +138,44 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
           )}
         </section>
 
+        <section className="module-credentials" aria-labelledby="credentials-title">
+          <div className="module-credentials-heading">
+            <div>
+              <p className="section-index">
+                [ 04 — {pl ? "Certyfikaty i dyplomy" : "Certificates & diplomas"} ]
+              </p>
+              <h2 id="credentials-title">
+                {pl ? "Potwierdzone doświadczenie." : "Experience, documented."}
+              </h2>
+            </div>
+            <p>
+              {pl
+                ? "Miejsce na dokumenty potwierdzające kwalifikacje, ukończone szkolenia i rozwój zawodowy."
+                : "A dedicated place for qualifications, completed training and continued professional development."}
+            </p>
+          </div>
+
+          <div className="credentials-grid">
+            {moduleConfig.credentialAreas.map((area, index) => (
+              <article className="credential-card" key={area}>
+                <div className="credential-card-topline">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span>{pl ? "Miejsce na dokument" : "Document placeholder"}</span>
+                </div>
+                <div className="credential-document" aria-hidden="true">
+                  <span />
+                </div>
+                <h3>{area}</h3>
+                <p>
+                  {pl
+                    ? "Certyfikat lub dyplom zostanie dodany tutaj."
+                    : "A certificate or diploma will be added here."}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="module-bottom-cta">
           <p>{pl ? "Masz na myśli coś konkretnego?" : "Have something specific in mind?"}</p>
           <h2>{pl ? "Zrealizujmy to." : "Let's make it real."}</h2>
