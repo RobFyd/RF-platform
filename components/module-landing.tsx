@@ -15,6 +15,7 @@ type ModuleLandingProps = {
 
 export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingProps) {
   const pl = language === "pl";
+  const credentials = moduleConfig.credentials;
   return (
     <div
       className={`module-page module-page-${moduleConfig.key}`}
@@ -149,30 +150,67 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
               </h2>
             </div>
             <p>
-              {pl
-                ? "Miejsce na dokumenty potwierdzające kwalifikacje, ukończone szkolenia i rozwój zawodowy."
-                : "A dedicated place for qualifications, completed training and continued professional development."}
+              {credentials
+                ? pl
+                  ? "Wybrane certyfikaty potwierdzające ukończone kursy, praktyczne projekty i rozwój w obszarze technologii webowych."
+                  : "Selected certificates documenting completed courses, practical projects and continued development in web technology."
+                : pl
+                  ? "Miejsce na dokumenty potwierdzające kwalifikacje, ukończone szkolenia i rozwój zawodowy."
+                  : "A dedicated place for qualifications, completed training and continued professional development."}
             </p>
           </div>
 
-          <div className="credentials-grid">
-            {moduleConfig.credentialAreas.map((area, index) => (
-              <article className="credential-card" key={area}>
-                <div className="credential-card-topline">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <span>{pl ? "Miejsce na dokument" : "Document placeholder"}</span>
-                </div>
-                <div className="credential-document" aria-hidden="true">
-                  <span />
-                </div>
-                <h3>{area}</h3>
-                <p>
-                  {pl
-                    ? "Certyfikat lub dyplom zostanie dodany tutaj."
-                    : "A certificate or diploma will be added here."}
-                </p>
-              </article>
-            ))}
+          <div className={`credentials-grid${credentials ? " credentials-grid-filled" : ""}`}>
+            {credentials
+              ? credentials.map((credential, index) => (
+                  <a
+                    className="credential-card credential-card-link"
+                    href={credential.href}
+                    key={credential.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${pl ? "Otwórz certyfikat" : "Open certificate"}: ${credential.title} (PDF)`}
+                  >
+                    <div className="credential-card-topline">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <span>PDF · {credential.issued}</span>
+                    </div>
+                    <div className="credential-preview">
+                      <Image
+                        src={credential.preview}
+                        alt={pl ? `Podgląd certyfikatu ${credential.title}` : `${credential.title} certificate preview`}
+                        fill
+                        sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                        unoptimized
+                      />
+                    </div>
+                    <div className="credential-card-copy">
+                      <h3>{credential.title}</h3>
+                      <p>{credential.issuer}</p>
+                    </div>
+                    <span className="credential-open">
+                      {pl ? "Zobacz certyfikat" : "View certificate"}
+                      <span aria-hidden="true">↗</span>
+                    </span>
+                  </a>
+                ))
+              : moduleConfig.credentialAreas.map((area, index) => (
+                  <article className="credential-card" key={area}>
+                    <div className="credential-card-topline">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <span>{pl ? "Miejsce na dokument" : "Document placeholder"}</span>
+                    </div>
+                    <div className="credential-document" aria-hidden="true">
+                      <span />
+                    </div>
+                    <h3>{area}</h3>
+                    <p>
+                      {pl
+                        ? "Certyfikat lub dyplom zostanie dodany tutaj."
+                        : "A certificate or diploma will be added here."}
+                    </p>
+                  </article>
+                ))}
           </div>
         </section>
 
