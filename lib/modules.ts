@@ -3,6 +3,14 @@ import type { Language } from "./i18n";
 
 export type ModuleKey = "factory" | "fusion" | "functions";
 
+export type Credential = {
+  title: string;
+  issuer: string;
+  issued: string;
+  href: string;
+  preview: string;
+};
+
 export type ModuleConfig = {
   key: ModuleKey;
   index: string;
@@ -18,7 +26,46 @@ export type ModuleConfig = {
   services: readonly string[];
   process: readonly string[];
   credentialAreas: readonly string[];
+  credentials?: readonly Credential[];
 };
+
+const functionsCredentials: readonly Credential[] = [
+  {
+    title: "CS50x",
+    issuer: "CS50 · Harvard University",
+    issued: "2024",
+    href: assetPath("/certificates/cs50x-robert-fydrych.pdf"),
+    preview: assetPath("/certificates/cs50x-robert-fydrych.webp"),
+  },
+  {
+    title: "Frontend Developer Course",
+    issuer: "YouCode",
+    issued: "2023",
+    href: assetPath("/certificates/youcode-frontend-robert-fydrych.pdf"),
+    preview: assetPath("/certificates/youcode-frontend-robert-fydrych.webp"),
+  },
+  {
+    title: "5 Day Coding Challenge",
+    issuer: "Code Institute",
+    issued: "2024",
+    href: assetPath("/certificates/code-institute-challenge-robert-fydrych.pdf"),
+    preview: assetPath("/certificates/code-institute-challenge-robert-fydrych.webp"),
+  },
+  {
+    title: "Modern and Efficient Web Applications",
+    issuer: "Web Amigos",
+    issued: "2024",
+    href: assetPath("/certificates/web-amigos-mewa-robert-fydrych.pdf"),
+    preview: assetPath("/certificates/web-amigos-mewa-robert-fydrych.webp"),
+  },
+  {
+    title: "Zrozumieć React",
+    issuer: "Filip Mamcarczyk · Kacper Sokołowski",
+    issued: "2026",
+    href: assetPath("/certificates/zrozumiec-react-robert-fydrych.pdf"),
+    preview: assetPath("/certificates/zrozumiec-react-robert-fydrych.webp"),
+  },
+];
 
 const shared = {
   factory: {
@@ -81,6 +128,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["Web Development", "Frontend Development", "AI Tools", "Automations", "Digital Experiments", "Portfolio Projects"],
       process: ["Understand the goal", "Prototype the system", "Build and improve"],
       credentialAreas: ["Web development", "Frontend & UX", "AI & automation"],
+      credentials: functionsCredentials,
     },
   ],
   pl: [
@@ -113,6 +161,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["Tworzenie stron internetowych", "Frontend", "Narzędzia AI", "Automatyzacje", "Eksperymenty cyfrowe", "Projekty portfolio"],
       process: ["Zrozumienie celu", "Prototyp systemu", "Budowa i rozwój"],
       credentialAreas: ["Tworzenie stron", "Frontend i UX", "AI i automatyzacja"],
+      credentials: functionsCredentials,
     },
   ],
 };
