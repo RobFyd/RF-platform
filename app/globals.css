@@ -814,6 +814,67 @@ html[data-theme="light"] .theme-icon-moon {
   outline-offset: 3px;
 }
 
+html[data-theme="light"] .module-panels {
+  background: #dedcd6;
+}
+
+html[data-theme="light"] .module-panel::before {
+  background:
+    linear-gradient(
+      180deg,
+      transparent 18%,
+      rgb(17 18 20 / 0.025) 58%,
+      var(--panel-background) 100%
+    ),
+    radial-gradient(
+      circle at 50% 45%,
+      rgb(17 18 20 / 0.09),
+      transparent 43%
+    );
+}
+
+html[data-theme="light"] .panel-background-video {
+  display: none;
+}
+
+html[data-theme="light"] .panel-visual {
+  filter: grayscale(1);
+}
+
+html[data-theme="light"] .module-panel:hover .panel-visual,
+html[data-theme="light"] .module-panel:focus-within .panel-visual {
+  opacity: 0.28;
+}
+
+html[data-theme="light"] .panel-link {
+  border-color: #111214;
+  background: #111214;
+  box-shadow:
+    0 0 0 0 rgb(var(--module-accent-rgb) / 0),
+    0 0 1.8rem rgb(var(--module-accent-rgb) / 0);
+  color: #f7f6f1;
+}
+
+html[data-theme="light"] .module-panel:hover .panel-link,
+html[data-theme="light"] .module-panel:focus-within .panel-link {
+  border-color: #111214;
+  background: #111214;
+  box-shadow:
+    0 0 0 1px rgb(var(--module-accent-rgb) / 0.32),
+    0 0 1.8rem rgb(var(--module-accent-rgb) / 0.3);
+  color: #fff;
+}
+
+html[data-theme="light"] .panel-link:hover,
+html[data-theme="light"] .panel-link:focus-visible {
+  border-color: #111214;
+  background: #111214;
+  box-shadow:
+    0 0 0 1px rgb(var(--module-accent-rgb) / 0.48),
+    0 0 2.25rem rgb(var(--module-accent-rgb) / 0.42);
+  color: #fff;
+}
+
 .intersection-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
