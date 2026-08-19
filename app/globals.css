@@ -37,7 +37,7 @@ html[data-theme="light"] {
   --grid-line: rgb(17 18 20 / 0.055);
   --soft-detail: rgb(17 18 20 / 0.035);
   --neutral-glow: rgb(17 18 20 / 0.075);
-  --rf-gold-rgb: 174 117 17;
+  --rf-gold-rgb: 255 255 255;
   --header-wash: rgb(242 240 234 / 0.94);
   --icon-filter: brightness(1);
 }
@@ -828,8 +828,8 @@ html[data-theme="light"] .module-panel::before {
     ),
     radial-gradient(
       circle at 50% 45%,
-      rgb(17 18 20 / 0.09),
-      transparent 43%
+      rgb(var(--module-accent-rgb) / 0.18),
+      transparent 48%
     );
 }
 
@@ -860,8 +860,8 @@ html[data-theme="light"] .module-panel:focus-within .panel-link {
   border-color: #111214;
   background: #111214;
   box-shadow:
-    0 0 0 1px rgb(var(--module-accent-rgb) / 0.32),
-    0 0 1.8rem rgb(var(--module-accent-rgb) / 0.3);
+    0 0 0 1px rgb(var(--module-accent-rgb) / 0.4),
+    0 0 2.1rem rgb(var(--module-accent-rgb) / 0.38);
   color: #fff;
 }
 
@@ -870,8 +870,8 @@ html[data-theme="light"] .panel-link:focus-visible {
   border-color: #111214;
   background: #111214;
   box-shadow:
-    0 0 0 1px rgb(var(--module-accent-rgb) / 0.48),
-    0 0 2.25rem rgb(var(--module-accent-rgb) / 0.42);
+    0 0 0 1px rgb(var(--module-accent-rgb) / 0.55),
+    0 0 2.6rem rgb(var(--module-accent-rgb) / 0.5);
   color: #fff;
 }
 
