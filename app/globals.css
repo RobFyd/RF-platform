@@ -1557,6 +1557,154 @@ html[data-theme="light"] .panel-link:focus-visible {
   transform: translate(0.18rem, -0.18rem);
 }
 
+.module-profile-links {
+  padding: var(--section-space) var(--page-padding);
+  border-top: 1px solid var(--line);
+}
+
+.profile-links-heading {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: end;
+  gap: clamp(3rem, 8vw, 8rem);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.profile-links-heading h2 {
+  margin: 2rem 0 0;
+  font-size: clamp(2rem, 4.6vw, 4.8rem);
+  font-weight: 520;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.profile-links-heading > p {
+  max-width: 32rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.profile-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.profile-link-card {
+  position: relative;
+  display: flex;
+  min-height: 22rem;
+  flex-direction: column;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgb(var(--module-accent-rgb) / 0.035), transparent 44%),
+    var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color var(--duration-fast),
+    background-color var(--duration-medium);
+}
+
+.profile-link-card:hover,
+.profile-link-card:focus-visible {
+  z-index: 1;
+  border-color: rgb(var(--module-accent-rgb) / 0.65);
+  background:
+    linear-gradient(145deg, rgb(var(--module-accent-rgb) / 0.085), transparent 50%),
+    var(--surface);
+}
+
+.profile-link-card:focus-visible {
+  outline: 2px solid var(--module-accent);
+  outline-offset: -3px;
+}
+
+.profile-link-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--faint);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.profile-link-icon {
+  display: grid;
+  width: 4.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  margin: auto 0;
+  border: 1px solid rgb(var(--module-accent-rgb) / 0.55);
+  border-radius: 50%;
+  color: var(--module-accent);
+  box-shadow: 0 0 2rem rgb(var(--module-accent-rgb) / 0.12);
+  transition:
+    box-shadow var(--duration-medium),
+    transform var(--duration-medium) var(--ease-out);
+}
+
+.profile-link-icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.profile-link-card:hover .profile-link-icon,
+.profile-link-card:focus-visible .profile-link-icon {
+  box-shadow: 0 0 2.8rem rgb(var(--module-accent-rgb) / 0.28);
+  transform: translateY(-0.25rem);
+}
+
+.profile-link-card h3 {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.profile-link-card > p {
+  max-width: 24rem;
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.profile-link-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  color: var(--module-accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.61rem;
+  letter-spacing: 0.06em;
+}
+
+.profile-link-footer > span:first-child {
+  overflow-wrap: anywhere;
+}
+
+.profile-link-footer > span:last-child {
+  flex: 0 0 auto;
+  font-size: 0.9rem;
+  transition: transform var(--duration-fast);
+}
+
+.profile-link-card:hover .profile-link-footer > span:last-child,
+.profile-link-card:focus-visible .profile-link-footer > span:last-child {
+  transform: translate(0.18rem, -0.18rem);
+}
+
 .module-bottom-cta > p {
   margin: 0 0 1.5rem;
   color: var(--faint);
@@ -1644,11 +1792,13 @@ html[data-theme="light"] .panel-link:focus-visible {
   .intersection-section,
   .module-services,
   .module-future-work,
-  .module-credentials-heading {
+  .module-credentials-heading,
+  .profile-links-heading {
     grid-template-columns: 1fr;
   }
 
-  .credentials-grid {
+  .credentials-grid,
+  .profile-links-grid {
     grid-template-columns: 1fr;
   }
 
