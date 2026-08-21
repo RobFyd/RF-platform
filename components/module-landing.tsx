@@ -13,7 +13,13 @@ type ModuleLandingProps = {
   language?: Language;
 };
 
-type ProfileIconName = "github" | "linkedin" | "people-per-hour";
+type ProfileIconName =
+  | "github"
+  | "linkedin"
+  | "people-per-hour"
+  | "etsy"
+  | "facebook"
+  | "ebay";
 
 function ProfileIcon({ name }: { name: ProfileIconName }) {
   if (name === "github") {
@@ -32,9 +38,33 @@ function ProfileIcon({ name }: { name: ProfileIconName }) {
     );
   }
 
+  if (name === "people-per-hour") {
+    return (
+      <svg viewBox="0 0 640 512" fill="currentColor" aria-hidden="true">
+        <path d="M224 0a128 128 0 1 1 0 256A128 128 0 1 1 224 0zM178.3 304h91.4c20.6 0 40.4 3.5 58.8 9.9C323 331 320 349.1 320 368c0 59.5 29.5 112.1 74.8 144H29.7C13.3 512 0 498.7 0 482.3 0 383.8 79.8 304 178.3 304zM352 368a144 144 0 1 1 288 0 144 144 0 1 1-288 0zm144-80c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32v-48c0-8.8-7.2-16-16-16z" />
+      </svg>
+    );
+  }
+
+  if (name === "etsy") {
+    return (
+      <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
+        <path d="M64 32h272v104h-40l-12-40H152v112h112v72H152v136h140l16-48h40L336 480H64v-40l40-12V84L64 72V32z" />
+      </svg>
+    );
+  }
+
+  if (name === "facebook") {
+    return (
+      <svg viewBox="0 0 320 512" fill="currentColor" aria-hidden="true">
+        <path d="M279.1 288l14.2-92.7h-88.9v-60.1c0-25.4 12.4-50.1 52.2-50.1H297V6.3S260.4 0 225.4 0c-73.2 0-121.1 44.4-121.1 124.7v70.6H22.9V288h81.4v224h100.1V288h74.7z" />
+      </svg>
+    );
+  }
+
   return (
-    <svg viewBox="0 0 640 512" fill="currentColor" aria-hidden="true">
-      <path d="M224 0a128 128 0 1 1 0 256A128 128 0 1 1 224 0zM178.3 304h91.4c20.6 0 40.4 3.5 58.8 9.9C323 331 320 349.1 320 368c0 59.5 29.5 112.1 74.8 144H29.7C13.3 512 0 498.7 0 482.3 0 383.8 79.8 304 178.3 304zM352 368a144 144 0 1 1 288 0 144 144 0 1 1-288 0zm144-80c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32v-48c0-8.8-7.2-16-16-16z" />
+    <svg className="profile-icon-wordmark" viewBox="0 0 160 72" aria-hidden="true">
+      <text x="80" y="47" textAnchor="middle">eBay</text>
     </svg>
   );
 }
@@ -42,7 +72,7 @@ function ProfileIcon({ name }: { name: ProfileIconName }) {
 export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingProps) {
   const pl = language === "pl";
   const credentials = moduleConfig.credentials;
-  const profileLinks = [
+  const functionsProfileLinks = [
     {
       name: "GitHub",
       href: "https://github.com/RobFyd",
@@ -51,6 +81,7 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
         ? "Kod źródłowy, projekty i aktywność developerska."
         : "Source code, projects and development activity.",
       icon: "github" as const,
+      status: pl ? "Profil zewnętrzny" : "External profile",
     },
     {
       name: "LinkedIn",
@@ -60,6 +91,7 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
         ? "Doświadczenie, umiejętności i profil zawodowy."
         : "Experience, skills and professional profile.",
       icon: "linkedin" as const,
+      status: pl ? "Profil zewnętrzny" : "External profile",
     },
     {
       name: "PeoplePerHour",
@@ -69,8 +101,60 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
         ? "Profil freelancera i możliwość rozpoczęcia współpracy."
         : "Freelance profile and a direct way to start working together.",
       icon: "people-per-hour" as const,
+      status: pl ? "Profil zewnętrzny" : "External profile",
     },
   ];
+  const factoryProfileLinks = [
+    {
+      name: "Etsy",
+      href: "https://www.etsy.com/shop/RobyFactory",
+      displayUrl: "etsy.com/shop/RobyFactory",
+      description: pl
+        ? "Sklep z gotowymi produktami i wydrukami 3D na zamówienie."
+        : "Finished products and custom-made 3D prints.",
+      icon: "etsy" as const,
+      status: pl ? "Sklep online" : "Online shop",
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/RobyFactory",
+      displayUrl: "facebook.com/RobyFactory",
+      description: pl
+        ? "Nowości, realizacje i kulisy pracy RobyFactory."
+        : "New releases, finished projects and behind-the-scenes updates.",
+      icon: "facebook" as const,
+      status: pl ? "Social media" : "Social media",
+    },
+    {
+      name: "eBay",
+      href: null,
+      displayUrl: pl ? "Link zostanie dodany" : "Link coming soon",
+      description: pl
+        ? "Sklep eBay zostanie udostępniony wkrótce."
+        : "The eBay shop will be available soon.",
+      icon: "ebay" as const,
+      status: pl ? "Wkrótce" : "Coming soon",
+    },
+  ];
+  const profileSection = moduleConfig.key === "functions"
+    ? {
+        label: pl ? "Profile i współpraca" : "Profiles & collaboration",
+        title: pl ? "Znajdź mnie online." : "Find me online.",
+        description: pl
+          ? "Kod, doświadczenie zawodowe i dostępność do współpracy — w jednym miejscu."
+          : "Code, professional experience and freelance availability — all in one place.",
+        links: functionsProfileLinks,
+      }
+    : moduleConfig.key === "factory"
+      ? {
+          label: pl ? "Sklepy i social media" : "Shops & social media",
+          title: pl ? "Znajdź RobyFactory online." : "Find RobyFactory online.",
+          description: pl
+            ? "Produkty, nowości i kulisy druku 3D — wybierz platformę."
+            : "Products, new releases and a closer look at the 3D printing process — choose a platform.",
+          links: factoryProfileLinks,
+        }
+      : null;
   return (
     <div
       className={`module-page module-page-${moduleConfig.key}`}
@@ -269,38 +353,27 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
           </div>
         </section>
 
-        {moduleConfig.key === "functions" ? (
+        {profileSection ? (
           <section className="module-profile-links" aria-labelledby="profile-links-title">
             <div className="profile-links-heading">
               <div>
                 <p className="section-index">
-                  [ 05 — {pl ? "Profile i współpraca" : "Profiles & collaboration"} ]
+                  [ 05 — {profileSection.label} ]
                 </p>
                 <h2 id="profile-links-title">
-                  {pl ? "Znajdź mnie online." : "Find me online."}
+                  {profileSection.title}
                 </h2>
               </div>
-              <p>
-                {pl
-                  ? "Kod, doświadczenie zawodowe i dostępność do współpracy — w jednym miejscu."
-                  : "Code, professional experience and freelance availability — all in one place."}
-              </p>
+              <p>{profileSection.description}</p>
             </div>
 
             <div className="profile-links-grid">
-              {profileLinks.map((profile, index) => {
-                return (
-                  <a
-                    className="profile-link-card"
-                    href={profile.href}
-                    key={profile.name}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${pl ? "Otwórz profil" : "Open profile"}: ${profile.name}`}
-                  >
+              {profileSection.links.map((profile, index) => {
+                const cardContent = (
+                  <>
                     <div className="profile-link-topline">
                       <span>{String(index + 1).padStart(2, "0")}</span>
-                      <span>{pl ? "Profil zewnętrzny" : "External profile"}</span>
+                      <span>{profile.status}</span>
                     </div>
                     <span className="profile-link-icon" aria-hidden="true">
                       <ProfileIcon name={profile.icon} />
@@ -309,9 +382,30 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
                     <p>{profile.description}</p>
                     <span className="profile-link-footer">
                       <span>{profile.displayUrl}</span>
-                      <span aria-hidden="true">↗</span>
+                      <span aria-hidden="true">{profile.href ? "↗" : "—"}</span>
                     </span>
+                  </>
+                );
+
+                return profile.href ? (
+                  <a
+                    className="profile-link-card"
+                    href={profile.href}
+                    key={profile.name}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${pl ? "Otwórz profil" : "Open profile"}: ${profile.name}`}
+                  >
+                    {cardContent}
                   </a>
+                ) : (
+                  <article
+                    className="profile-link-card profile-link-card-disabled"
+                    key={profile.name}
+                    aria-label={`${profile.name}: ${profile.status}`}
+                  >
+                    {cardContent}
+                  </article>
                 );
               })}
             </div>

@@ -1611,13 +1611,18 @@ html[data-theme="light"] .panel-link:focus-visible {
     background-color var(--duration-medium);
 }
 
-.profile-link-card:hover,
+.profile-link-card:not(.profile-link-card-disabled):hover,
 .profile-link-card:focus-visible {
   z-index: 1;
   border-color: rgb(var(--module-accent-rgb) / 0.65);
   background:
     linear-gradient(145deg, rgb(var(--module-accent-rgb) / 0.085), transparent 50%),
     var(--surface);
+}
+
+.profile-link-card-disabled {
+  cursor: default;
+  opacity: 0.55;
 }
 
 .profile-link-card:focus-visible {
@@ -1656,7 +1661,20 @@ html[data-theme="light"] .panel-link:focus-visible {
   height: 2rem;
 }
 
-.profile-link-card:hover .profile-link-icon,
+.profile-link-icon .profile-icon-wordmark {
+  width: 2.7rem;
+  overflow: visible;
+}
+
+.profile-icon-wordmark text {
+  fill: currentColor;
+  font-family: Arial, sans-serif;
+  font-size: 2.35rem;
+  font-weight: 700;
+  letter-spacing: -0.13em;
+}
+
+.profile-link-card:not(.profile-link-card-disabled):hover .profile-link-icon,
 .profile-link-card:focus-visible .profile-link-icon {
   box-shadow: 0 0 2.8rem rgb(var(--module-accent-rgb) / 0.28);
   transform: translateY(-0.25rem);
@@ -1700,7 +1718,7 @@ html[data-theme="light"] .panel-link:focus-visible {
   transition: transform var(--duration-fast);
 }
 
-.profile-link-card:hover .profile-link-footer > span:last-child,
+.profile-link-card:not(.profile-link-card-disabled):hover .profile-link-footer > span:last-child,
 .profile-link-card:focus-visible .profile-link-footer > span:last-child {
   transform: translate(0.18rem, -0.18rem);
 }
