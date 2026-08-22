@@ -1662,14 +1662,15 @@ html[data-theme="light"] .panel-link:focus-visible {
 }
 
 .profile-link-icon .profile-icon-wordmark {
-  width: 2.7rem;
+  width: 3.6rem;
+  height: 2.5rem;
   overflow: visible;
 }
 
 .profile-icon-wordmark text {
   fill: currentColor;
   font-family: Arial, sans-serif;
-  font-size: 2.35rem;
+  font-size: 3.4rem;
   font-weight: 700;
   letter-spacing: -0.13em;
 }
