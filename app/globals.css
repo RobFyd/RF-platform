@@ -25,21 +25,31 @@
 }
 
 html[data-theme="light"] {
-  --background: #f2f0ea;
-  --surface: #e9e7e1;
-  --surface-raised: #f8f7f3;
-  --panel-background: #eae8e2;
-  --foreground: #111214;
-  --muted: #555b62;
-  --faint: #777d83;
+  --background: #f6f6f6;
+  --surface: #ededed;
+  --surface-raised: #fff;
+  --panel-background: #eeeeee;
+  --foreground: #101010;
+  --muted: #555;
+  --faint: #777;
   --line: rgb(17 18 20 / 0.13);
   --line-strong: rgb(17 18 20 / 0.28);
   --grid-line: rgb(17 18 20 / 0.055);
   --soft-detail: rgb(17 18 20 / 0.035);
   --neutral-glow: rgb(17 18 20 / 0.075);
-  --rf-gold-rgb: 255 255 255;
-  --header-wash: rgb(242 240 234 / 0.94);
+  --rf-gold-rgb: 17 18 20;
+  --header-wash: rgb(246 246 246 / 0.94);
   --icon-filter: brightness(1);
+}
+
+html[data-theme="light"] .module-panel,
+html[data-theme="light"] .module-page {
+  --module-accent: #111214 !important;
+  --module-accent-rgb: 17 18 20 !important;
+}
+
+html[data-theme="light"] :focus-visible {
+  outline-color: #111214;
 }
 
 @theme inline {
@@ -815,7 +825,7 @@ html[data-theme="light"] .theme-icon-moon {
 }
 
 html[data-theme="light"] .module-panels {
-  background: #dedcd6;
+  background: #dedede;
 }
 
 html[data-theme="light"] .module-panel::before {
