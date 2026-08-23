@@ -145,7 +145,9 @@ a {
   height: 2.35rem;
   object-fit: contain;
   filter: var(--icon-filter);
-  transition: filter var(--duration-medium) var(--ease-out);
+  transition:
+    filter var(--duration-medium) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
 }
 
 .brand:hover img,
@@ -162,6 +164,14 @@ a {
     var(--icon-filter)
     drop-shadow(0 0 0.55rem rgb(var(--rf-gold-rgb) / 1))
     drop-shadow(0 0 1.45rem rgb(var(--rf-gold-rgb) / 0.72));
+}
+
+html[data-theme="light"] .brand:hover img,
+html[data-theme="light"] .brand:focus-visible img,
+html[data-theme="light"] .site-header .brand:hover img,
+html[data-theme="light"] .site-header .brand:focus-visible img {
+  filter: var(--icon-filter);
+  transform: scale(1.025);
 }
 
 .site-header nav {
@@ -383,6 +393,14 @@ html[data-theme="light"] .theme-icon-moon {
     drop-shadow(0 0 0.65rem rgb(var(--rf-gold-rgb) / 0.95))
     drop-shadow(0 0 3.5rem rgb(var(--rf-gold-rgb) / 0.68));
   transform: scale(1.025);
+}
+
+html[data-theme="light"] .hero-mark:hover::before {
+  opacity: 0;
+}
+
+html[data-theme="light"] .hero-mark:hover img {
+  filter: var(--icon-filter);
 }
 
 .hero-statement {
@@ -829,18 +847,7 @@ html[data-theme="light"] .module-panels {
 }
 
 html[data-theme="light"] .module-panel::before {
-  background:
-    linear-gradient(
-      180deg,
-      transparent 18%,
-      rgb(17 18 20 / 0.025) 58%,
-      var(--panel-background) 100%
-    ),
-    radial-gradient(
-      circle at 50% 45%,
-      rgb(var(--module-accent-rgb) / 0.18),
-      transparent 48%
-    );
+  background: none;
 }
 
 html[data-theme="light"] .panel-background-video {
@@ -848,12 +855,12 @@ html[data-theme="light"] .panel-background-video {
 }
 
 html[data-theme="light"] .panel-visual {
-  filter: grayscale(1);
+  display: none;
 }
 
 html[data-theme="light"] .module-panel:hover .panel-visual,
 html[data-theme="light"] .module-panel:focus-within .panel-visual {
-  opacity: 0.28;
+  opacity: 0;
 }
 
 html[data-theme="light"] .panel-link {
