@@ -19,7 +19,10 @@ type ProfileIconName =
   | "people-per-hour"
   | "etsy"
   | "facebook"
-  | "ebay";
+  | "ebay"
+  | "engineering"
+  | "personal-portfolio"
+  | "workshop-updates";
 
 function ProfileIcon({ name }: { name: ProfileIconName }) {
   if (name === "github") {
@@ -58,6 +61,32 @@ function ProfileIcon({ name }: { name: ProfileIconName }) {
     return (
       <svg viewBox="0 0 320 512" fill="currentColor" aria-hidden="true">
         <path d="M279.1 288l14.2-92.7h-88.9v-60.1c0-25.4 12.4-50.1 52.2-50.1H297V6.3S260.4 0 225.4 0c-73.2 0-121.1 44.4-121.1 124.7v70.6H22.9V288h81.4v224h100.1V288h74.7z" />
+      </svg>
+    );
+  }
+
+  if (name === "engineering") {
+    return (
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+        <path d="M8 52h48M12 52V29l14 8V25l14 8V18l12 7v27" />
+        <path d="M19 45v-5M31 45v-5M43 45v-5" />
+      </svg>
+    );
+  }
+
+  if (name === "personal-portfolio") {
+    return (
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+        <rect x="11" y="17" width="42" height="34" rx="2" />
+        <path d="M23 17v-5h18v5M11 30h42M25 30v6h14v-6" />
+      </svg>
+    );
+  }
+
+  if (name === "workshop-updates") {
+    return (
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+        <path d="M39 12a12 12 0 0 0-14 15L11 41a7 7 0 0 0 10 10l14-14a12 12 0 0 0 15-14l-8 8-9-9 8-8-2-2z" />
       </svg>
     );
   }
@@ -136,6 +165,38 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
       status: pl ? "Wkrótce" : "Coming soon",
     },
   ];
+  const fusionProfileLinks = [
+    {
+      name: "Warren Engineering",
+      href: "https://www.warrenengineering.co.uk/products",
+      displayUrl: "warrenengineering.co.uk/products",
+      description: pl
+        ? "Zewnętrzna galeria produktów i realizacji firmy, z którą obecnie współpracuję. Przy wielu prezentowanych elementach wykonywałem prace produkcyjne i spawalnicze."
+        : "An external gallery of products and projects from the company I currently work with. I contributed fabrication and welding work to many of the pieces shown.",
+      icon: "engineering" as const,
+      status: pl ? "Galeria firmy" : "Company gallery",
+    },
+    {
+      name: pl ? "Portfolio spawalnicze" : "Welding portfolio",
+      href: null,
+      displayUrl: pl ? "Materiały zostaną dodane" : "Content coming soon",
+      description: pl
+        ? "Dedykowany wybór moich własnych realizacji spawalniczych pojawi się tutaj."
+        : "A dedicated selection of my own welding projects will be added here.",
+      icon: "personal-portfolio" as const,
+      status: pl ? "W przygotowaniu" : "In progress",
+    },
+    {
+      name: pl ? "Aktualności z warsztatu" : "Workshop updates",
+      href: null,
+      displayUrl: pl ? "Link zostanie dodany" : "Link coming soon",
+      description: pl
+        ? "Miejsce na przyszłe materiały z produkcji, spawania TIG i pracy warsztatowej."
+        : "A future home for fabrication, TIG welding and workshop updates.",
+      icon: "workshop-updates" as const,
+      status: pl ? "Wkrótce" : "Coming soon",
+    },
+  ];
   const profileSection = moduleConfig.key === "functions"
     ? {
         label: pl ? "Profile i współpraca" : "Profiles & collaboration",
@@ -154,7 +215,16 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
             : "Products, new releases and a closer look at the 3D printing process — choose a platform.",
           links: factoryProfileLinks,
         }
-      : null;
+      : moduleConfig.key === "fusion"
+        ? {
+            label: pl ? "Praca i portfolio" : "Work & portfolio",
+            title: pl ? "Zobacz Fusion w praktyce." : "See Fusion in practice.",
+            description: pl
+              ? "Zewnętrzne galerie i przyszłe materiały pokazujące środowisko, w którym realizuję projekty produkcyjne i spawalnicze."
+              : "External galleries and future materials showing the environment where I deliver fabrication and welding work.",
+            links: fusionProfileLinks,
+          }
+        : null;
   return (
     <div
       className={`module-page module-page-${moduleConfig.key}`}
