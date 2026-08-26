@@ -6,6 +6,7 @@ import { SiteHeader } from "./site-header";
 import { FactoryGallery } from "./factory-gallery";
 import { FusionGallery } from "./fusion-gallery";
 import { FunctionsGallery } from "./functions-gallery";
+import { TechnologyMarquee } from "./technology-marquee";
 import { homePath, type Language } from "@/lib/i18n";
 
 type ModuleLandingProps = {
@@ -281,9 +282,26 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
           </ul>
         </section>
 
+        {moduleConfig.key === "functions" ? (
+          <section className="module-technologies" aria-labelledby="technologies-title">
+            <div className="module-technologies-heading">
+              <div>
+                <p className="section-index">[ 02 — {pl ? "Technologie" : "Technologies"} ]</p>
+                <h2 id="technologies-title">{pl ? "Narzędzia, których używam." : "Tools I build with."}</h2>
+              </div>
+              <p>
+                {pl
+                  ? "Technologie dobierane do rzeczywistego problemu — od solidnej warstwy frontendowej po logikę serwerową i procesy wspierane przez AI."
+                  : "Technology chosen around the real problem — from a solid frontend layer to server-side logic and AI-assisted workflows."}
+              </p>
+            </div>
+            <TechnologyMarquee language={language} />
+          </section>
+        ) : null}
+
         <section className="module-process" aria-labelledby="process-title">
           <div className="module-process-heading">
-            <p className="section-index">[ 02 — {pl ? "Proces" : "Process"} ]</p>
+            <p className="section-index">[ {moduleConfig.key === "functions" ? "03" : "02"} — {pl ? "Proces" : "Process"} ]</p>
             <h2 id="process-title">{pl ? "Jasno od założeń do rezultatu." : "Clear from brief to result."}</h2>
           </div>
           <ol>
@@ -334,7 +352,7 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
             <>
               <div className="fusion-gallery-heading">
                 <div>
-                  <p className="section-index">[ 03 — {pl ? "Wybrane koncepcje" : "Selected work"} ]</p>
+                  <p className="section-index">[ 04 — {pl ? "Wybrane koncepcje" : "Selected work"} ]</p>
                   <h2 id="selected-work-title">{pl ? "Pomysły zbudowane w kodzie." : "Ideas built in code."}</h2>
                 </div>
                 <div>
@@ -352,7 +370,7 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
           <div className="module-credentials-heading">
             <div>
               <p className="section-index">
-                [ 04 — {pl ? "Certyfikaty i dyplomy" : "Certificates & diplomas"} ]
+                [ {moduleConfig.key === "functions" ? "05" : "04"} — {pl ? "Certyfikaty i dyplomy" : "Certificates & diplomas"} ]
               </p>
               <h2 id="credentials-title">
                 {pl ? "Potwierdzone doświadczenie." : "Experience, documented."}
@@ -428,7 +446,7 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
             <div className="profile-links-heading">
               <div>
                 <p className="section-index">
-                  [ 05 — {profileSection.label} ]
+                  [ {moduleConfig.key === "functions" ? "06" : "05"} — {profileSection.label} ]
                 </p>
                 <h2 id="profile-links-title">
                   {profileSection.title}
