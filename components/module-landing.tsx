@@ -177,24 +177,24 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
       status: pl ? "Galeria firmy" : "Company gallery",
     },
     {
-      name: pl ? "Portfolio spawalnicze" : "Welding portfolio",
-      href: null,
-      displayUrl: pl ? "Materiały zostaną dodane" : "Content coming soon",
+      name: "Global Tube Fabrications",
+      href: "http://globaltube.biz/welding/",
+      displayUrl: "globaltube.biz/welding",
       description: pl
-        ? "Dedykowany wybór moich własnych realizacji spawalniczych pojawi się tutaj."
-        : "A dedicated selection of my own welding projects will be added here.",
-      icon: "personal-portfolio" as const,
-      status: pl ? "W przygotowaniu" : "In progress",
+        ? "Zewnętrzna prezentacja usług spawalniczych i możliwości produkcyjnych Global Tube Fabrications."
+        : "An external overview of Global Tube Fabrications' welding services and production capabilities.",
+      icon: "engineering" as const,
+      status: pl ? "Galeria firmy" : "Company gallery",
     },
     {
-      name: pl ? "Aktualności z warsztatu" : "Workshop updates",
-      href: null,
-      displayUrl: pl ? "Link zostanie dodany" : "Link coming soon",
+      name: "REDGAZ",
+      href: "https://www.redgaz.com.pl/zakres-uslug,1",
+      displayUrl: "redgaz.com.pl/zakres-uslug",
       description: pl
-        ? "Miejsce na przyszłe materiały z produkcji, spawania TIG i pracy warsztatowej."
-        : "A future home for fabrication, TIG welding and workshop updates.",
-      icon: "workshop-updates" as const,
-      status: pl ? "Wkrótce" : "Coming soon",
+        ? "Zewnętrzna prezentacja zakresu usług produkcyjnych i spawalniczych firmy REDGAZ."
+        : "An external overview of REDGAZ's fabrication and welding services.",
+      icon: "engineering" as const,
+      status: pl ? "Zakres usług" : "Services overview",
     },
   ];
   const profileSection = moduleConfig.key === "functions"
@@ -220,8 +220,8 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
             label: pl ? "Praca i portfolio" : "Work & portfolio",
             title: pl ? "Zobacz Fusion w praktyce." : "See Fusion in practice.",
             description: pl
-              ? "Zewnętrzne galerie i przyszłe materiały pokazujące środowisko, w którym realizuję projekty produkcyjne i spawalnicze."
-              : "External galleries and future materials showing the environment where I deliver fabrication and welding work.",
+              ? "Zewnętrzne galerie i strony firm pokazujące środowiska realizacji projektów produkcyjnych i spawalniczych."
+              : "External company galleries and websites showing fabrication and welding project environments.",
             links: fusionProfileLinks,
           }
         : null;
