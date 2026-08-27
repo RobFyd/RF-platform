@@ -67,6 +67,33 @@ const technologies: readonly Technology[] = [
     },
   },
   {
+    key: "vite",
+    name: "Vite",
+    iconPath: assetPath("/technologies/vite.svg"),
+    description: {
+      en: "A fast development server and build tool that keeps modern frontend projects lightweight and responsive while coding.",
+      pl: "Szybki serwer deweloperski i narzędzie budujące, które usprawnia pracę nad nowoczesnymi projektami frontendowymi.",
+    },
+  },
+  {
+    key: "react-router",
+    name: "React Router",
+    iconPath: assetPath("/technologies/reactrouter.svg"),
+    description: {
+      en: "Client-side routing for multi-view React applications with clear navigation and URL-driven interfaces.",
+      pl: "Routing po stronie klienta dla wielowidokowych aplikacji React z czytelną nawigacją opartą na adresach URL.",
+    },
+  },
+  {
+    key: "redux",
+    name: "Redux",
+    iconPath: assetPath("/technologies/redux.svg"),
+    description: {
+      en: "Predictable shared state management for applications where data and interactions span multiple components.",
+      pl: "Przewidywalne zarządzanie wspólnym stanem aplikacji, gdy dane i interakcje obejmują wiele komponentów.",
+    },
+  },
+  {
     key: "nodejs",
     name: "Node.js",
     iconPath: assetPath("/technologies/nodejs.svg"),
@@ -91,6 +118,24 @@ const technologies: readonly Technology[] = [
     description: {
       en: "Version control for safe iteration, clear change history and dependable collaboration on code.",
       pl: "Kontrola wersji umożliwiająca bezpieczne zmiany, czytelną historię projektu i sprawną współpracę nad kodem.",
+    },
+  },
+  {
+    key: "github",
+    name: "GitHub",
+    iconPath: assetPath("/technologies/github.svg"),
+    description: {
+      en: "Repository hosting, pull requests and project workflows that turn versioned code into collaborative development.",
+      pl: "Repozytoria, pull requesty i procesy projektowe, które zamieniają wersjonowany kod w uporządkowaną współpracę.",
+    },
+  },
+  {
+    key: "figma",
+    name: "Figma",
+    iconPath: assetPath("/technologies/figma.svg"),
+    description: {
+      en: "Interface design and prototyping used to shape layouts, visual systems and user flows before implementation.",
+      pl: "Projektowanie i prototypowanie interfejsów, układów, systemów wizualnych i ścieżek użytkownika przed wdrożeniem.",
     },
   },
   {
