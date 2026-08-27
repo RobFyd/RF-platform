@@ -1625,7 +1625,7 @@ html[data-theme="light"] .panel-link:focus-visible {
 .technology-track {
   display: flex;
   width: max-content;
-  animation: technology-scroll 34s linear infinite;
+  animation: technology-scroll 51s linear infinite;
   will-change: transform;
 }
 
@@ -2213,7 +2213,7 @@ html[data-theme="light"] .technology-item.is-active .technology-icon {
   }
 
   .technology-track {
-    animation-duration: 28s;
+    animation-duration: 42s;
   }
 
   .technology-item {
