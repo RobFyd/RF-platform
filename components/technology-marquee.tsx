@@ -11,7 +11,7 @@ type Technology = {
   description: Record<Language, string>;
 };
 
-const technologies: readonly Technology[] = [
+const functionsTechnologies: readonly Technology[] = [
   {
     key: "html",
     name: "HTML5",
@@ -149,14 +149,113 @@ const technologies: readonly Technology[] = [
   },
 ];
 
-export function TechnologyMarquee({ language = "en" }: { language?: Language }) {
+const factoryTechnologies: readonly Technology[] = [
+  {
+    key: "fusion-360",
+    name: "Fusion 360",
+    iconPath: assetPath("/technologies/fusion360.svg"),
+    description: {
+      en: "Parametric CAD for designing functional parts, assemblies and production-ready models for 3D printing.",
+      pl: "Parametryczny CAD do projektowania funkcjonalnych części, złożeń i modeli przygotowanych do druku 3D.",
+    },
+  },
+  {
+    key: "solidworks",
+    name: "SolidWorks",
+    iconPath: assetPath("/technologies/solidworks.svg"),
+    description: {
+      en: "Engineering CAD used to develop precise parts, assemblies and technical solutions with real-world constraints.",
+      pl: "Inżynierski CAD do tworzenia precyzyjnych części, złożeń i rozwiązań uwzględniających rzeczywiste ograniczenia.",
+    },
+  },
+  {
+    key: "blender",
+    name: "Blender",
+    iconPath: assetPath("/technologies/blender.svg"),
+    description: {
+      en: "Free-form 3D modelling, sculpting and rendering for visual concepts, organic shapes and presentation assets.",
+      pl: "Swobodne modelowanie 3D, rzeźbienie i rendering do koncepcji wizualnych, organicznych form i materiałów prezentacyjnych.",
+    },
+  },
+  {
+    key: "openscad",
+    name: "OpenSCAD",
+    iconPath: assetPath("/technologies/openscad.svg"),
+    description: {
+      en: "Code-driven, parametric modelling for repeatable components whose dimensions and variants can be changed quickly.",
+      pl: "Parametryczne modelowanie oparte na kodzie do powtarzalnych elementów, których wymiary i warianty można szybko zmieniać.",
+    },
+  },
+  {
+    key: "inkscape",
+    name: "Inkscape",
+    iconPath: assetPath("/technologies/inkscape.svg"),
+    description: {
+      en: "Vector graphics for logos, labels, outlines and clean source files used in product and print workflows.",
+      pl: "Grafika wektorowa do logo, etykiet, obrysów i czystych plików źródłowych wykorzystywanych przy produktach i druku.",
+    },
+  },
+  {
+    key: "orcaslicer",
+    name: "OrcaSlicer",
+    iconPath: assetPath("/technologies/orcaslicer.svg"),
+    description: {
+      en: "Slicing, calibration and print-profile control for turning finished 3D models into reliable physical prints.",
+      pl: "Cięcie modeli, kalibracja i kontrola profili druku, które zamieniają gotowy model 3D w niezawodny wydruk.",
+    },
+  },
+  {
+    key: "tinkercad",
+    name: "Tinkercad",
+    iconPath: assetPath("/technologies/tinkercad.svg"),
+    description: {
+      en: "Fast browser-based modelling for simple forms, early prototypes and quick modifications before printing.",
+      pl: "Szybkie modelowanie w przeglądarce do prostych form, wczesnych prototypów i sprawnych poprawek przed drukiem.",
+    },
+  },
+  {
+    key: "canva",
+    name: "Canva",
+    iconPath: assetPath("/technologies/canva.svg"),
+    description: {
+      en: "Efficient preparation of product graphics, social media materials and consistent visual presentations.",
+      pl: "Sprawne przygotowanie grafik produktowych, materiałów do social mediów i spójnych prezentacji wizualnych.",
+    },
+  },
+  {
+    key: "capcut",
+    name: "CapCut",
+    iconPath: assetPath("/technologies/capcut.svg"),
+    description: {
+      en: "Editing short product videos, process footage and social content that shows how an object is made and used.",
+      pl: "Montaż krótkich filmów produktowych, ujęć z procesu i treści pokazujących, jak przedmiot powstaje i działa.",
+    },
+  },
+  {
+    key: "ai-tools",
+    name: "AI",
+    iconPath: assetPath("/technologies/ai-tools.svg"),
+    description: {
+      en: "AI-assisted tools for creating and refining graphics, product concepts and 3D models.",
+      pl: "Narzędzia AI wspierające tworzenie i obróbkę grafik, koncepcji produktowych oraz modeli 3D.",
+    },
+  },
+];
+
+type TechnologyMarqueeProps = {
+  language?: Language;
+  moduleKey?: "factory" | "functions";
+};
+
+export function TechnologyMarquee({ language = "en", moduleKey = "functions" }: TechnologyMarqueeProps) {
+  const technologies = moduleKey === "factory" ? factoryTechnologies : functionsTechnologies;
   const [activeKey, setActiveKey] = useState<string | null>(null);
   const activeTechnology = technologies.find((technology) => technology.key === activeKey);
   const pl = language === "pl";
 
   return (
     <div
-      className={`technology-marquee${activeTechnology ? " is-paused" : ""}`}
+      className={`technology-marquee technology-marquee-${moduleKey}${activeTechnology ? " is-paused" : ""}`}
       onMouseLeave={() => setActiveKey(null)}
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
@@ -204,14 +303,18 @@ export function TechnologyMarquee({ language = "en" }: { language?: Language }) 
 
       <div className="technology-description" aria-live="polite">
         <span className="technology-description-index">
-          {activeTechnology ? `// ${activeTechnology.name}` : "// STACK"}
+          {activeTechnology ? `// ${activeTechnology.name}` : moduleKey === "factory" ? "// TOOLKIT" : "// STACK"}
         </span>
         <p>
           {activeTechnology
             ? activeTechnology.description[language]
             : pl
-              ? "Najedź na technologię lub dotknij jej, aby zatrzymać pasek i poznać jej zastosowanie."
-              : "Hover over or tap a technology to pause the track and see how it is used."}
+              ? moduleKey === "factory"
+                ? "Najedź na narzędzie lub dotknij go, aby zatrzymać pasek i zobaczyć, gdzie wykorzystuję je w procesie twórczym."
+                : "Najedź na technologię lub dotknij jej, aby zatrzymać pasek i poznać jej zastosowanie."
+              : moduleKey === "factory"
+                ? "Hover over or tap a tool to pause the track and see where it fits into the creative process."
+                : "Hover over or tap a technology to pause the track and see how it is used."}
         </p>
       </div>
     </div>

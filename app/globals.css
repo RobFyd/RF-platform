@@ -1629,6 +1629,10 @@ html[data-theme="light"] .panel-link:focus-visible {
   will-change: transform;
 }
 
+.technology-marquee-factory .technology-track {
+  animation-duration: 34s;
+}
+
 .technology-marquee:hover .technology-track,
 .technology-marquee:focus-within .technology-track,
 .technology-marquee.is-paused .technology-track {
@@ -2214,6 +2218,10 @@ html[data-theme="light"] .technology-item.is-active .technology-icon {
 
   .technology-track {
     animation-duration: 42s;
+  }
+
+  .technology-marquee-factory .technology-track {
+    animation-duration: 28s;
   }
 
   .technology-item {
