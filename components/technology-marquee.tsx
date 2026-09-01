@@ -242,13 +242,110 @@ const factoryTechnologies: readonly Technology[] = [
   },
 ];
 
+const fusionTechnologies: readonly Technology[] = [
+  {
+    key: "technical-drawing",
+    name: "Technical Drawing",
+    iconPath: assetPath("/technologies/fusion-technical-drawing.svg"),
+    description: {
+      en: "Reading engineering drawings, dimensions, tolerances and fabrication details before work begins.",
+      pl: "Czytanie rysunków technicznych, wymiarów, tolerancji i szczegółów wykonania przed rozpoczęciem pracy.",
+    },
+  },
+  {
+    key: "cad-design",
+    name: "CAD Design",
+    iconPath: assetPath("/technologies/fusion-cad-design.svg"),
+    description: {
+      en: "2D and 3D design used to turn requirements into clear, manufacturable components and assemblies.",
+      pl: "Projektowanie 2D i 3D, które zamienia założenia w czytelne, możliwe do wykonania części oraz złożenia.",
+    },
+  },
+  {
+    key: "tig-welding",
+    name: "TIG Welding",
+    iconPath: assetPath("/technologies/fusion-tig.svg"),
+    description: {
+      en: "Precise, controlled welding of stainless steel, aluminium and thin-walled components where finish matters.",
+      pl: "Precyzyjne, kontrolowane spawanie stali nierdzewnej, aluminium i cienkościennych elementów wymagających dobrego wykończenia.",
+    },
+  },
+  {
+    key: "mig-mag-welding",
+    name: "MIG/MAG Welding",
+    iconPath: assetPath("/technologies/fusion-mig-mag.svg"),
+    description: {
+      en: "Efficient wire-feed welding for mild-steel parts, frames and general workshop fabrication.",
+      pl: "Wydajne spawanie drutem elementów ze stali konstrukcyjnej, ram i typowych konstrukcji warsztatowych.",
+    },
+  },
+  {
+    key: "mma-welding",
+    name: "MMA Welding",
+    iconPath: assetPath("/technologies/fusion-mma.svg"),
+    description: {
+      en: "Manual metal arc welding for robust joints, repairs and work where portability and versatility are important.",
+      pl: "Ręczne spawanie elektrodą otuloną do solidnych połączeń, napraw i prac wymagających mobilności oraz uniwersalności.",
+    },
+  },
+  {
+    key: "plasma-cutting",
+    name: "Plasma Cutting",
+    iconPath: assetPath("/technologies/fusion-plasma-cutting.svg"),
+    description: {
+      en: "Fast cutting of sheet and plate to prepare accurate profiles and blanks for further fabrication.",
+      pl: "Szybkie cięcie blach i płyt w celu przygotowania dokładnych kształtów oraz półfabrykatów do dalszej obróbki.",
+    },
+  },
+  {
+    key: "metal-fabrication",
+    name: "Metal Fabrication",
+    iconPath: assetPath("/technologies/fusion-metal-fabrication.svg"),
+    description: {
+      en: "Practical fabrication including cutting, drilling, tapping, bending, forming and preparing parts for assembly.",
+      pl: "Praktyczna obróbka obejmująca cięcie, wiercenie, gwintowanie, gięcie, formowanie i przygotowanie części do montażu.",
+    },
+  },
+  {
+    key: "fit-up-assembly",
+    name: "Fit-up & Assembly",
+    iconPath: assetPath("/technologies/fusion-fit-up-assembly.svg"),
+    description: {
+      en: "Aligning, squaring, tacking and assembling components so the finished structure matches the drawing.",
+      pl: "Ustawianie, prostowanie, sczepianie i składanie elementów tak, aby gotowa konstrukcja była zgodna z dokumentacją.",
+    },
+  },
+  {
+    key: "finishing-preparation",
+    name: "Finishing & Preparation",
+    iconPath: assetPath("/technologies/fusion-finishing-preparation.svg"),
+    description: {
+      en: "Weld preparation, grinding, deburring and polishing used to achieve clean joints and a professional finish.",
+      pl: "Przygotowanie spoin, szlifowanie, gratowanie i polerowanie pozwalające uzyskać czyste połączenia oraz profesjonalne wykończenie.",
+    },
+  },
+  {
+    key: "welding-quality-control",
+    name: "Welding Quality Control",
+    iconPath: assetPath("/technologies/fusion-quality-control.svg"),
+    description: {
+      en: "Dimensional checks, visual weld inspection and verification against drawings and fabrication requirements.",
+      pl: "Kontrola wymiarów, wizualna ocena spoin oraz sprawdzanie zgodności z rysunkiem i wymaganiami wykonawczymi.",
+    },
+  },
+];
+
 type TechnologyMarqueeProps = {
   language?: Language;
-  moduleKey?: "factory" | "functions";
+  moduleKey?: "factory" | "fusion" | "functions";
 };
 
 export function TechnologyMarquee({ language = "en", moduleKey = "functions" }: TechnologyMarqueeProps) {
-  const technologies = moduleKey === "factory" ? factoryTechnologies : functionsTechnologies;
+  const technologies = moduleKey === "factory"
+    ? factoryTechnologies
+    : moduleKey === "fusion"
+      ? fusionTechnologies
+      : functionsTechnologies;
   const [activeKey, setActiveKey] = useState<string | null>(null);
   const activeTechnology = technologies.find((technology) => technology.key === activeKey);
   const pl = language === "pl";
@@ -303,7 +400,13 @@ export function TechnologyMarquee({ language = "en", moduleKey = "functions" }: 
 
       <div className="technology-description" aria-live="polite">
         <span className="technology-description-index">
-          {activeTechnology ? `// ${activeTechnology.name}` : moduleKey === "factory" ? "// TOOLKIT" : "// STACK"}
+          {activeTechnology
+            ? `// ${activeTechnology.name}`
+            : moduleKey === "factory"
+              ? "// TOOLKIT"
+              : moduleKey === "fusion"
+                ? "// WORKSHOP"
+                : "// STACK"}
         </span>
         <p>
           {activeTechnology
@@ -311,9 +414,13 @@ export function TechnologyMarquee({ language = "en", moduleKey = "functions" }: 
             : pl
               ? moduleKey === "factory"
                 ? "Najedź na narzędzie lub dotknij go, aby zatrzymać pasek i zobaczyć, gdzie wykorzystuję je w procesie twórczym."
+                : moduleKey === "fusion"
+                  ? "Najedź na proces lub dotknij go, aby zatrzymać pasek i zobaczyć, jak wykorzystuję go w pracy warsztatowej."
                 : "Najedź na technologię lub dotknij jej, aby zatrzymać pasek i poznać jej zastosowanie."
               : moduleKey === "factory"
                 ? "Hover over or tap a tool to pause the track and see where it fits into the creative process."
+                : moduleKey === "fusion"
+                  ? "Hover over or tap a process to pause the track and see how it is used in workshop practice."
                 : "Hover over or tap a technology to pause the track and see how it is used."}
         </p>
       </div>

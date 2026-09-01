@@ -303,34 +303,38 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
           </ul>
         </section>
 
-        {moduleConfig.key !== "fusion" ? (
-          <section className="module-technologies" aria-labelledby="technologies-title">
-            <div className="module-technologies-heading">
-              <div>
-                <p className="section-index">[ 02 — {pl ? "Technologie" : "Technologies"} ]</p>
-                <h2 id="technologies-title">
-                  {moduleConfig.key === "factory"
-                    ? pl ? "Narzędzia, którymi tworzę." : "Tools I create with."
-                    : pl ? "Narzędzia, których używam." : "Tools I build with."}
-                </h2>
-              </div>
-              <p>
+        <section className="module-technologies" aria-labelledby="technologies-title">
+          <div className="module-technologies-heading">
+            <div>
+              <p className="section-index">[ 02 — {pl ? "Technologie" : "Technologies"} ]</p>
+              <h2 id="technologies-title">
                 {moduleConfig.key === "factory"
+                  ? pl ? "Narzędzia, którymi tworzę." : "Tools I create with."
+                  : moduleConfig.key === "fusion"
+                    ? pl ? "Procesy, które znam z praktyki." : "Processes grounded in practice."
+                    : pl ? "Narzędzia, których używam." : "Tools I build with."}
+              </h2>
+            </div>
+            <p>
+              {moduleConfig.key === "factory"
+                ? pl
+                  ? "Od pierwszej koncepcji i modelu 3D, przez przygotowanie wydruku, aż po grafikę i prezentację gotowego produktu."
+                  : "From the first concept and 3D model through print preparation to the graphics and presentation of the finished product."
+                : moduleConfig.key === "fusion"
                   ? pl
-                    ? "Od pierwszej koncepcji i modelu 3D, przez przygotowanie wydruku, aż po grafikę i prezentację gotowego produktu."
-                    : "From the first concept and 3D model through print preparation to the graphics and presentation of the finished product."
+                    ? "Od dokumentacji i przygotowania elementów, przez spawanie oraz obróbkę, po montaż i końcową kontrolę jakości."
+                    : "From drawings and component preparation through welding and fabrication to assembly and final quality checks."
                   : pl
                     ? "Technologie dobierane do rzeczywistego problemu — od solidnej warstwy frontendowej po logikę serwerową i procesy wspierane przez AI."
                     : "Technology chosen around the real problem — from a solid frontend layer to server-side logic and AI-assisted workflows."}
-              </p>
-            </div>
-            <TechnologyMarquee language={language} moduleKey={moduleConfig.key} />
-          </section>
-        ) : null}
+            </p>
+          </div>
+          <TechnologyMarquee language={language} moduleKey={moduleConfig.key} />
+        </section>
 
         <section className="module-process" aria-labelledby="process-title">
           <div className="module-process-heading">
-            <p className="section-index">[ {moduleConfig.key !== "fusion" ? "03" : "02"} — {pl ? "Proces" : "Process"} ]</p>
+            <p className="section-index">[ 03 — {pl ? "Proces" : "Process"} ]</p>
             <h2 id="process-title">{pl ? "Jasno od założeń do rezultatu." : "Clear from brief to result."}</h2>
           </div>
           <ol>
@@ -366,7 +370,7 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
             <>
               <div className="fusion-gallery-heading">
                 <div>
-                  <p className="section-index">[ 03 — {pl ? "Wybrane realizacje" : "Selected work"} ]</p>
+                  <p className="section-index">[ 04 — {pl ? "Wybrane realizacje" : "Selected work"} ]</p>
                   <h2 id="selected-work-title">{pl ? "Praca w metalu." : "Work in metal."}</h2>
                 </div>
                 <div>
@@ -399,7 +403,7 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
           <div className="module-credentials-heading">
             <div>
               <p className="section-index">
-                [ {moduleConfig.key !== "fusion" ? "05" : "04"} — {pl ? "Certyfikaty i dyplomy" : "Certificates & diplomas"} ]
+                [ 05 — {pl ? "Certyfikaty i dyplomy" : "Certificates & diplomas"} ]
               </p>
               <h2 id="credentials-title">
                 {pl ? "Potwierdzone doświadczenie." : "Experience, documented."}
@@ -475,7 +479,7 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
             <div className="profile-links-heading">
               <div>
                 <p className="section-index">
-                  [ {moduleConfig.key !== "fusion" ? "06" : "05"} — {profileSection.label} ]
+                  [ 06 — {profileSection.label} ]
                 </p>
                 <h2 id="profile-links-title">
                   {profileSection.title}
