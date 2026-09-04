@@ -846,6 +846,10 @@ html[data-theme="light"] .module-panels {
   background: #dedede;
 }
 
+html[data-theme="light"] .module-panels[data-active] .module-panel {
+  flex: 1 1 0%;
+}
+
 html[data-theme="light"] .module-panel::before {
   background: none;
 }
