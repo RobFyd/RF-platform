@@ -1530,6 +1530,17 @@ html[data-theme="light"] .panel-link:focus-visible {
   transform: translateY(-0.3rem);
 }
 
+.module-page-functions .credential-preview {
+  transform: scale(0.52);
+  transform-origin: center;
+}
+
+.module-page-functions .credential-card-link:hover .credential-preview,
+.module-page-functions .credential-card-link:focus-visible .credential-preview {
+  border-color: rgb(var(--module-accent-rgb) / 0.55);
+  transform: translateY(-0.3rem) scale(1);
+}
+
 .credential-card h3 {
   margin: 0;
   font-size: clamp(1.05rem, 1.5vw, 1.35rem);
