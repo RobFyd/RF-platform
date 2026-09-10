@@ -15,8 +15,8 @@ const galleryItems = [
   {
     src: assetPath("/fusion/tig-welded-tube.webp"),
     alt: "Close-up of precision TIG welds on a polished metal tube",
-    title: "Controlled TIG welding",
-    meta: "Stainless steel · TIG · Production",
+    title: "Controlled MIG/TIG welding",
+    meta: "Stainless steel · MIG/TIG · Production",
   },
   {
     src: assetPath("/fusion/fabrication-table.webp"),
@@ -97,7 +97,7 @@ export function FusionGallery({ language = "en" }: { language?: Language }) {
               type="button"
               key={item.src}
               onClick={() => setLightboxIndex(index)}
-                aria-label={`${pl ? "Otwórz projekt" : "Open project"} ${index + 1}: ${item.title}`}
+              aria-label={`${pl ? "Otwórz projekt" : "Open project"} ${index + 1}: ${item.title}`}
             >
               <span className="factory-gallery-image">
                 <Image
