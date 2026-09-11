@@ -2593,7 +2593,6 @@ html[data-theme="light"] .technology-item.is-active .technology-icon {
   will-change: transform;
 }
 
-.factory-gallery-marquee:hover .factory-gallery-marquee-track,
 .factory-gallery-marquee:focus-within .factory-gallery-marquee-track,
 .factory-gallery-marquee.is-paused .factory-gallery-marquee-track {
   animation-play-state: paused;
