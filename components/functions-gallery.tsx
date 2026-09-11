@@ -51,7 +51,7 @@ export function FunctionsGallery({ language = "en" }: { language?: Language }) {
   const pl = language === "pl";
   const itemCount = items.length;
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const railRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const selectRelative = useCallback((direction: number) => {
@@ -60,13 +60,6 @@ export function FunctionsGallery({ language = "en" }: { language?: Language }) {
       return (current + direction + itemCount) % itemCount;
     });
   }, [itemCount]);
-
-  const scrollRail = (direction: number) => {
-    railRef.current?.scrollBy({
-      left: direction * Math.max(280, railRef.current.clientWidth * 0.72),
-      behavior: "smooth",
-    });
-  };
 
   useEffect(() => {
     if (lightboxIndex === null) return;
@@ -89,32 +82,72 @@ export function FunctionsGallery({ language = "en" }: { language?: Language }) {
   }, [lightboxIndex, selectRelative]);
 
   return (
-    <div className="factory-gallery" role="region" aria-label={pl ? "Wybrane koncepcje RobyFunctions" : "Selected RobyFunctions concepts"}>
-      <div className="factory-gallery-rail-shell">
-        <button className="factory-gallery-rail-arrow is-left" type="button" onClick={() => scrollRail(-1)} aria-label={pl ? "Przewiń galerię w lewo" : "Scroll gallery left"}>
-          <span aria-hidden="true">←</span>
-        </button>
-
-        <div className="factory-gallery-rail" ref={railRef}>
-          {items.map((item, index) => (
-            <button className="factory-gallery-thumbnail" type="button" key={item.src} onClick={() => setLightboxIndex(index)} aria-label={`${pl ? "Otwórz koncepcję" : "Open concept"} ${index + 1}: ${item.title}`}>
-              <span className="factory-gallery-image">
-                <Image src={item.src} alt={item.alt} fill sizes="(max-width: 620px) 72vw, (max-width: 1000px) 38vw, 25vw" priority={index < 2} />
-              </span>
-              <span className="factory-gallery-thumbnail-copy">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{item.title}</strong>
-              </span>
-            </button>
+    <div
+      className={`factory-gallery factory-gallery-marquee${activeIndex !== null ? " is-paused" : ""}`}
+      role="region"
+      aria-label={pl ? "Wybrane koncepcje RobyFunctions" : "Selected RobyFunctions concepts"}
+      onMouseLeave={() => setActiveIndex(null)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setActiveIndex(null);
+        }
+      }}
+    >
+      <div className="factory-gallery-marquee-viewport">
+        <div className="factory-gallery-marquee-track">
+          {[0, 1].map((copyIndex) => (
+            <div
+              className="factory-gallery-marquee-group"
+              key={copyIndex}
+              aria-hidden={copyIndex === 1 ? "true" : undefined}
+            >
+              {items.map((item, index) => (
+                <button
+                  className="factory-gallery-marquee-item"
+                  type="button"
+                  key={`${copyIndex}-${item.src}`}
+                  tabIndex={copyIndex === 1 ? -1 : 0}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onMouseLeave={() => setActiveIndex((current) => current === index ? null : current)}
+                  onFocus={() => setActiveIndex(index)}
+                  onClick={() => setLightboxIndex(index)}
+                  aria-label={`${pl ? "Otwórz koncepcję" : "Open concept"} ${index + 1}: ${item.title}`}
+                >
+                  <span className="factory-gallery-marquee-image">
+                    <Image
+                      src={item.src}
+                      alt={copyIndex === 0 ? item.alt : ""}
+                      fill
+                      sizes="(max-width: 620px) 8rem, (max-width: 1000px) 14vw, 12rem"
+                      priority={copyIndex === 0 && index < 2}
+                    />
+                  </span>
+                </button>
+              ))}
+            </div>
           ))}
         </div>
-
-        <button className="factory-gallery-rail-arrow is-right" type="button" onClick={() => scrollRail(1)} aria-label={pl ? "Przewiń galerię w prawo" : "Scroll gallery right"}>
-          <span aria-hidden="true">→</span>
-        </button>
       </div>
 
-      <p className="factory-gallery-hint">{pl ? "Wybierz grafikę, aby ją powiększyć" : "Select an image to enlarge"}</p>
+      <div
+        className={`factory-gallery-marquee-description${activeIndex !== null ? " is-visible" : ""}`}
+        aria-live="polite"
+      >
+        {activeIndex !== null ? (
+          <>
+            <span className="factory-gallery-marquee-index">
+              {`// ${String(activeIndex + 1).padStart(2, "0")}`}
+            </span>
+            <div>
+              <strong>{items[activeIndex].title}</strong>
+              <p>{items[activeIndex].meta}</p>
+              <span className="factory-gallery-marquee-hint">
+                {pl ? "Kliknij, aby otworzyć pełną grafikę" : "Click to open the full image"}
+              </span>
+            </div>
+          </>
+        ) : null}
+      </div>
 
       {lightboxIndex !== null ? (
         <div className="factory-lightbox" role="dialog" aria-modal="true" aria-label={items[lightboxIndex].title} onMouseDown={(event) => {
