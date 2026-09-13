@@ -2279,7 +2279,8 @@ html[data-theme="light"] .technology-item.is-active .technology-icon {
 /* RobyFusion selected work carousel */
 
 .module-page-factory .module-future-work,
-.module-page-fusion .module-future-work {
+.module-page-fusion .module-future-work,
+.module-page-functions .module-future-work {
   display: block;
 }
 
