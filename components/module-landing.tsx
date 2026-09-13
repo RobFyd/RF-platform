@@ -262,7 +262,6 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
       <SiteHeader language={language} currentPath={moduleConfig.href} />
       <main>
         <section className="module-hero" aria-labelledby="module-title">
-          <div className="technical-grid" aria-hidden="true" />
           <div className="module-hero-glow" aria-hidden="true" />
           <div className="module-breadcrumb">
             <Link href={homePath(language)}>{"//RF"}</Link>

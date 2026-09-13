@@ -75,7 +75,12 @@ html[data-theme="light"] {
 
 body {
   margin: 0;
-  background: var(--background);
+  background-color: var(--background);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
+  background-position: center top;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   font-family: var(--font-geist-sans), Arial, sans-serif;
@@ -297,17 +302,6 @@ html[data-theme="light"] .theme-icon-moon {
     clamp(3rem, 8vh, 5rem);
   isolation: isolate;
   overflow: hidden;
-}
-
-.technical-grid {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 4.5rem 4.5rem;
-  mask-image: linear-gradient(to bottom, transparent 3%, black 35%, transparent);
 }
 
 .hero-content {
@@ -595,13 +589,7 @@ html[data-theme="light"] .hero-mark:hover img {
 
 .module-panel::after {
   z-index: -3;
-  background:
-    linear-gradient(120deg, transparent 25%, var(--soft-detail), transparent 70%),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 3rem,
-      var(--soft-detail) 3rem calc(3rem + 1px)
-    );
+  background: linear-gradient(120deg, transparent 25%, var(--soft-detail), transparent 70%);
 }
 
 .panel-background-video {

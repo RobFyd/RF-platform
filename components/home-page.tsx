@@ -39,7 +39,6 @@ export function HomePage({ language }: { language: Language }) {
       <SiteHeader language={language} />
       <main>
         <InteractiveHero>
-          <div className="technical-grid" aria-hidden="true" />
           <div className="hero-content">
             <p className="eyebrow">
               <span>Robert Fydrych //RF</span>
