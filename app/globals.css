@@ -79,17 +79,17 @@ body {
   background-image:
     linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--background) 82%, transparent) 0,
-      transparent clamp(5rem, 10vh, 9rem),
-      transparent calc(100% - clamp(5rem, 10vh, 9rem)),
-      color-mix(in srgb, var(--background) 82%, transparent) 100%
+      color-mix(in srgb, var(--background) 90%, transparent) 0,
+      transparent clamp(7rem, 14vh, 13rem),
+      transparent calc(100% - clamp(7rem, 14vh, 13rem)),
+      color-mix(in srgb, var(--background) 90%, transparent) 100%
     ),
     linear-gradient(
       to right,
-      color-mix(in srgb, var(--background) 78%, transparent) 0,
-      transparent clamp(3rem, 8vw, 8rem),
-      transparent calc(100% - clamp(3rem, 8vw, 8rem)),
-      color-mix(in srgb, var(--background) 78%, transparent) 100%
+      color-mix(in srgb, var(--background) 94%, transparent) 0,
+      transparent clamp(6rem, 15vw, 16rem),
+      transparent calc(100% - clamp(6rem, 15vw, 16rem)),
+      color-mix(in srgb, var(--background) 94%, transparent) 100%
     ),
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
