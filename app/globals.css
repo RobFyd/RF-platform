@@ -1635,6 +1635,7 @@ html[data-theme="light"] .panel-link:focus-visible {
 .technology-marquee {
   --technology-item-width: clamp(8.5rem, 12vw, 11rem);
   position: relative;
+  background: var(--background);
 }
 
 .technology-viewport {
