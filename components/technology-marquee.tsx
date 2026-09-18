@@ -348,7 +348,9 @@ export function TechnologyMarquee({ language = "en", moduleKey = "functions" }: 
       : functionsTechnologies;
   const [activeKey, setActiveKey] = useState<string | null>(null);
   const activeTechnology = technologies.find((technology) => technology.key === activeKey);
-  const pl = language === "pl";
+  const activeIndex = activeTechnology
+    ? technologies.findIndex((technology) => technology.key === activeTechnology.key)
+    : -1;
 
   return (
     <div
@@ -374,6 +376,11 @@ export function TechnologyMarquee({ language = "en", moduleKey = "functions" }: 
               onPointerEnter={(event) => {
                 if (event.pointerType === "mouse") setActiveKey(technology.key);
               }}
+              onPointerLeave={(event) => {
+                if (event.pointerType === "mouse") {
+                  setActiveKey((current) => current === technology.key ? null : current);
+                }
+              }}
               onPointerDown={(event) => {
                 if (event.pointerType === "mouse") {
                   event.preventDefault();
@@ -398,31 +405,21 @@ export function TechnologyMarquee({ language = "en", moduleKey = "functions" }: 
         </div>
       </div>
 
-      <div className="technology-description" aria-live="polite">
-        <span className="technology-description-index">
-          {activeTechnology
-            ? `// ${activeTechnology.name}`
-            : moduleKey === "factory"
-              ? "// TOOLKIT"
-              : moduleKey === "fusion"
-                ? "// WORKSHOP"
-                : "// STACK"}
-        </span>
-        <p>
-          {activeTechnology
-            ? activeTechnology.description[language]
-            : pl
-              ? moduleKey === "factory"
-                ? "Najedź na narzędzie lub dotknij go, aby zatrzymać pasek i zobaczyć, gdzie wykorzystuję je w procesie twórczym."
-                : moduleKey === "fusion"
-                  ? "Najedź na proces lub dotknij go, aby zatrzymać pasek i zobaczyć, jak wykorzystuję go w pracy warsztatowej."
-                : "Najedź na technologię lub dotknij jej, aby zatrzymać pasek i poznać jej zastosowanie."
-              : moduleKey === "factory"
-                ? "Hover over or tap a tool to pause the track and see where it fits into the creative process."
-                : moduleKey === "fusion"
-                  ? "Hover over or tap a process to pause the track and see how it is used in workshop practice."
-                : "Hover over or tap a technology to pause the track and see how it is used."}
-        </p>
+      <div
+        className={`technology-description${activeTechnology ? " is-visible" : ""}`}
+        aria-live="polite"
+      >
+        {activeTechnology ? (
+          <>
+            <span className="technology-description-index">
+              {`// ${String(activeIndex + 1).padStart(2, "0")}`}
+            </span>
+            <div>
+              <strong>{activeTechnology.name}</strong>
+              <p>{activeTechnology.description[language]}</p>
+            </div>
+          </>
+        ) : null}
       </div>
     </div>
   );
