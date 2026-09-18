@@ -1657,7 +1657,6 @@ html[data-theme="light"] .panel-link:focus-visible {
   animation-duration: 34s;
 }
 
-.technology-marquee:hover .technology-track,
 .technology-marquee:focus-within .technology-track,
 .technology-marquee.is-paused .technology-track {
   animation-play-state: paused;
@@ -1717,29 +1716,51 @@ html[data-theme="light"] .panel-link:focus-visible {
 
 .technology-description {
   display: grid;
-  grid-template-columns: minmax(9rem, 0.35fr) 1fr;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  min-height: 7rem;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 1.75rem);
+  width: min(calc(100% - (2 * var(--page-padding))), 52rem);
+  min-height: 8.5rem;
   align-items: start;
-  margin-inline: var(--page-padding);
-  padding: 1.75rem 0;
-  border-bottom: 1px solid var(--line);
+  margin: 1.25rem auto 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid transparent;
+  background: transparent;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition:
+    border-color var(--duration-fast),
+    background-color var(--duration-fast),
+    opacity var(--duration-fast),
+    transform var(--duration-medium) var(--ease-out);
+}
+
+.technology-description.is-visible {
+  border-color: var(--line);
+  background: var(--surface);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .technology-description-index {
   color: var(--module-accent);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 0.65rem;
+  font-size: 0.59rem;
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
+.technology-description strong {
+  display: block;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 520;
+}
+
 .technology-description p {
   max-width: 52rem;
-  margin: 0;
+  margin: 0.45rem 0 0;
   color: var(--muted);
-  font-size: clamp(0.88rem, 1.2vw, 1rem);
-  line-height: 1.7;
+  font-size: 0.82rem;
+  line-height: 1.55;
 }
 
 html[data-theme="light"] .technology-item:hover,
@@ -2260,9 +2281,9 @@ html[data-theme="light"] .technology-item.is-active .technology-icon {
   }
 
   .technology-description {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-    min-height: 9rem;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    min-height: 9.5rem;
+    padding: 1rem;
   }
 }
 
