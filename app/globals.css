@@ -1673,7 +1673,7 @@ html[data-theme="light"] .panel-link:focus-visible {
   border: 0;
   border-right: 1px solid var(--line);
   color: var(--faint);
-  background: transparent;
+  background: var(--background);
   cursor: pointer;
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.62rem;
@@ -1688,7 +1688,7 @@ html[data-theme="light"] .panel-link:focus-visible {
 .technology-item:focus-visible,
 .technology-item.is-active {
   color: var(--module-accent);
-  background: rgb(var(--module-accent-rgb) / 0.055);
+  background: color-mix(in srgb, var(--module-accent) 5.5%, var(--background));
   outline: 0;
 }
 
@@ -1764,7 +1764,7 @@ html[data-theme="light"] .panel-link:focus-visible {
 html[data-theme="light"] .technology-item:hover,
 html[data-theme="light"] .technology-item:focus-visible,
 html[data-theme="light"] .technology-item.is-active {
-  background: rgb(17 18 20 / 0.045);
+  background: color-mix(in srgb, var(--foreground) 4.5%, var(--background));
 }
 
 html[data-theme="light"] .technology-item:hover .technology-icon,
