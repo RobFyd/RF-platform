@@ -84,6 +84,14 @@ const engineeringCourseworkEn: Credential = {
   preview: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.webp"),
 };
 
+const engineeringCourseworkTranslationEn: Credential = {
+  title: "Mechanical Engineering Coursework - English Translation",
+  issuer: "Unofficial translation of the Polish faculty document",
+  issued: "EN",
+  href: assetPath("/certificates/mechanical-engineering-coursework-translation-en-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/mechanical-engineering-coursework-translation-en-robert-fydrych.webp"),
+};
+
 const engineeringDiplomaPl: Credential = {
   title: "Dyplom inżyniera mechaniki i budowy maszyn",
   issuer: "Politechnika Koszalińska · Wydział Mechaniczny",
@@ -100,8 +108,24 @@ const engineeringCourseworkPl: Credential = {
   preview: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.webp"),
 };
 
-const factoryCredentialsEn: readonly Credential[] = [engineeringDiplomaEn, engineeringCourseworkEn];
-const factoryCredentialsPl: readonly Credential[] = [engineeringDiplomaPl, engineeringCourseworkPl];
+const engineeringCourseworkTranslationPl: Credential = {
+  title: "Program kształcenia inżynierskiego - tłumaczenie angielskie",
+  issuer: "Nieoficjalne tłumaczenie polskiego dokumentu wydziałowego",
+  issued: "EN",
+  href: assetPath("/certificates/mechanical-engineering-coursework-translation-en-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/mechanical-engineering-coursework-translation-en-robert-fydrych.webp"),
+};
+
+const factoryCredentialsEn: readonly Credential[] = [
+  engineeringDiplomaEn,
+  engineeringCourseworkTranslationEn,
+  engineeringCourseworkEn,
+];
+const factoryCredentialsPl: readonly Credential[] = [
+  engineeringDiplomaPl,
+  engineeringCourseworkTranslationPl,
+  engineeringCourseworkPl,
+];
 const fusionCredentialsEn: readonly Credential[] = [engineeringDiplomaEn];
 const fusionCredentialsPl: readonly Credential[] = [engineeringDiplomaPl];
 
