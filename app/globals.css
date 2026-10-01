@@ -1431,6 +1431,11 @@ html[data-theme="light"] .panel-link:focus-visible {
   grid-column: span 2;
 }
 
+.credentials-grid-filled .credential-card:first-child:nth-last-child(2),
+.credentials-grid-filled .credential-card:nth-child(2):last-child {
+  grid-column: span 3;
+}
+
 .credentials-grid-filled .credential-card:nth-child(4):nth-last-child(2),
 .credentials-grid-filled .credential-card:nth-child(5):last-child {
   grid-column: span 3;
@@ -2041,6 +2046,8 @@ html[data-theme="light"] .technology-item.is-active .technology-icon {
   }
 
   .credentials-grid-filled .credential-card,
+  .credentials-grid-filled .credential-card:first-child:nth-last-child(2),
+  .credentials-grid-filled .credential-card:nth-child(2):last-child,
   .credentials-grid-filled .credential-card:nth-child(4):nth-last-child(2),
   .credentials-grid-filled .credential-card:nth-child(5):last-child {
     grid-column: auto;

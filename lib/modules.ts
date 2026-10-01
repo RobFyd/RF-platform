@@ -67,6 +67,40 @@ const functionsCredentials: readonly Credential[] = [
   },
 ];
 
+const fusionCredentialsEn: readonly Credential[] = [
+  {
+    title: "BEng in Mechanics and Machine Construction",
+    issuer: "Koszalin University of Technology · Faculty of Mechanical Engineering",
+    issued: "2013",
+    href: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.pdf"),
+    preview: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.webp"),
+  },
+  {
+    title: "Mechanical Engineering Coursework Completion",
+    issuer: "Koszalin University of Technology · Faculty of Mechanical Engineering",
+    issued: "2013",
+    href: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.pdf"),
+    preview: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.webp"),
+  },
+];
+
+const fusionCredentialsPl: readonly Credential[] = [
+  {
+    title: "Dyplom inżyniera mechaniki i budowy maszyn",
+    issuer: "Politechnika Koszalińska · Wydział Mechaniczny",
+    issued: "2013",
+    href: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.pdf"),
+    preview: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.webp"),
+  },
+  {
+    title: "Ukończenie programu kształcenia inżynierskiego",
+    issuer: "Politechnika Koszalińska · Wydział Mechaniczny",
+    issued: "2013",
+    href: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.pdf"),
+    preview: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.webp"),
+  },
+];
+
 const shared = {
   factory: {
     key: "factory",
@@ -118,6 +152,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["TIG Welding", "Stainless Steel", "Aluminium", "Fabrication", "Technical Drawings", "Production and Repair Work"],
       process: ["Review requirements", "Prepare and fabricate", "Inspect and finish"],
       credentialAreas: ["Welding qualifications", "Fabrication & inspection", "Safety & compliance"],
+      credentials: fusionCredentialsEn,
     },
     {
       ...shared.functions,
@@ -151,6 +186,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["Spawanie TIG", "Stal nierdzewna", "Aluminium", "Produkcja konstrukcji", "Rysunki techniczne", "Produkcja i naprawy"],
       process: ["Analiza wymagań", "Przygotowanie i wykonanie", "Kontrola i wykończenie"],
       credentialAreas: ["Kwalifikacje spawalnicze", "Produkcja i kontrola", "Bezpieczeństwo i zgodność"],
+      credentials: fusionCredentialsPl,
     },
     {
       ...shared.functions,
