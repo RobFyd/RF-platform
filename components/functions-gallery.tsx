@@ -7,43 +7,92 @@ import type { Language } from "@/lib/i18n";
 
 const galleryItems = [
   {
-    src: assetPath("/functions/code-workspace.webp"),
-    alt: "Dark frontend development workspace with code editor",
-    title: "Frontend development",
-    meta: "React · TypeScript · Component-based interfaces",
+    src: assetPath("/functions/rf-platform.webp"),
+    alt: "Landing page of the modular RF portfolio platform",
+    title: "//RF Platform",
+    meta: "Next.js · React · TypeScript · Tailwind CSS · Modular multilingual portfolio",
   },
   {
-    src: assetPath("/functions/responsive-interface.webp"),
-    alt: "Responsive dark dashboard displayed across desktop, tablet and phone",
-    title: "Responsive interfaces",
-    meta: "Web design · Mobile-first UI · Accessible experiences",
+    src: assetPath("/functions/movie-browser.webp"),
+    alt: "Movie Browser interface showing a searchable grid of popular films",
+    title: "Movie Browser",
+    meta: "React · Movie data · Search · Categories · Favourites",
   },
   {
-    src: assetPath("/functions/ai-automation.webp"),
-    alt: "Connected digital modules forming an AI automation workflow",
-    title: "AI-powered automation",
-    meta: "Connected workflows · Intelligent tools · Practical outcomes",
+    src: assetPath("/functions/robyfactory-website.webp"),
+    alt: "RobyFactory product website presenting 3D printed designs",
+    title: "RobyFactory Website",
+    meta: "Responsive product website · HTML · CSS · JavaScript · Visual storytelling",
   },
   {
-    src: assetPath("/functions/app-architecture.webp"),
-    alt: "Isometric full-stack application architecture with connected services",
-    title: "Application architecture",
-    meta: "Frontend · API · Data · Cloud deployment",
+    src: assetPath("/functions/shop-in-react.webp"),
+    alt: "Shop in React interface with a hero image and product cards",
+    title: "Shop in React",
+    meta: "React · React Router · REST API · Netlify · Render",
   },
   {
-    src: assetPath("/functions/quote-configurator.webp"),
-    alt: "Digital manufacturing quote configurator with a 3D part preview",
-    title: "Smart quote configurator",
-    meta: "Custom tools · Manufacturing workflow · Instant estimates",
+    src: assetPath("/functions/todo-list-react.webp"),
+    alt: "React task list with search, filtering and completion controls",
+    title: "To-do List",
+    meta: "React · Task filtering · Completion states · Reusable components",
+  },
+  {
+    src: assetPath("/functions/currency-converter-react.webp"),
+    alt: "React money exchanger converting British pounds into another currency",
+    title: "React Currency Converter",
+    meta: "React · Currency API · Form validation · Live conversion",
+  },
+  {
+    src: assetPath("/functions/task-tracker-react-vite.webp"),
+    alt: "Purple drag and drop task tracker with movable task cards",
+    title: "Drag & Drop Task Tracker",
+    meta: "React · Vite · Drag and drop · Task state management",
+  },
+  {
+    src: assetPath("/functions/javascript-calculator.webp"),
+    alt: "JavaScript calculator with a calculation history panel",
+    title: "JavaScript Calculator",
+    meta: "JavaScript · Calculation history · Responsive interface",
+  },
+  {
+    src: assetPath("/functions/threejs-sphere.webp"),
+    alt: "Interactive Three.js sphere that can be rotated by the user",
+    title: "Interactive Three.js Sphere",
+    meta: "Three.js · WebGL · Interactive 3D · Pointer controls",
+  },
+  {
+    src: assetPath("/functions/javascript-bmi-calculator.webp"),
+    alt: "JavaScript BMI calculator displayed over a fruit background",
+    title: "BMI Calculator",
+    meta: "JavaScript · Form validation · Dynamic calculation results",
+  },
+  {
+    src: assetPath("/functions/javascript-currency-converter.webp"),
+    alt: "JavaScript currency converter with amount and currency selectors",
+    title: "JavaScript Currency Converter",
+    meta: "JavaScript · Form handling · Input validation · Currency conversion",
+  },
+  {
+    src: assetPath("/functions/react-tic-tac-toe.webp"),
+    alt: "React tic-tac-toe game showing the winning line",
+    title: "React Tic-Tac-Toe",
+    meta: "React · Game state · Winner detection · Interactive interface",
   },
 ] as const;
 
 const polishItems = [
-  { ...galleryItems[0], alt: "Ciemne środowisko programistyczne z edytorem kodu", title: "Tworzenie frontendu", meta: "React · TypeScript · Interfejsy komponentowe" },
-  { ...galleryItems[1], alt: "Responsywny ciemny panel na komputerze, tablecie i telefonie", title: "Responsywne interfejsy", meta: "Web design · Mobile-first · Dostępność" },
-  { ...galleryItems[2], alt: "Połączone moduły cyfrowe tworzące przepływ automatyzacji AI", title: "Automatyzacja wspierana przez AI", meta: "Połączone procesy · Inteligentne narzędzia · Praktyczne rezultaty" },
-  { ...galleryItems[3], alt: "Izometryczna architektura aplikacji full-stack z połączonymi usługami", title: "Architektura aplikacji", meta: "Frontend · API · Dane · Wdrożenie w chmurze" },
-  { ...galleryItems[4], alt: "Konfigurator wyceny produkcji z podglądem części 3D", title: "Inteligentny konfigurator wyceny", meta: "Narzędzia na zamówienie · Produkcja · Natychmiastowa wycena" },
+  { ...galleryItems[0], alt: "Strona główna modułowej platformy portfolio RF", title: "Platforma //RF", meta: "Next.js · React · TypeScript · Tailwind CSS · Modułowe portfolio PL/EN" },
+  { ...galleryItems[1], alt: "Przeglądarka filmów z wyszukiwarką i siatką popularnych tytułów", title: "Przeglądarka filmów", meta: "React · Dane filmowe · Wyszukiwanie · Kategorie · Ulubione" },
+  { ...galleryItems[2], alt: "Strona produktowa RobyFactory prezentująca projekty druku 3D", title: "Strona RobyFactory", meta: "Responsywna strona produktowa · HTML · CSS · JavaScript · Prezentacja wizualna" },
+  { ...galleryItems[3], alt: "Sklep w React z grafiką główną i kafelkami produktów", title: "Sklep w React", meta: "React · React Router · REST API · Netlify · Render" },
+  { ...galleryItems[4], alt: "Lista zadań w React z wyszukiwaniem, filtrowaniem i oznaczaniem wykonania", title: "Lista zadań", meta: "React · Filtrowanie zadań · Status wykonania · Komponenty wielokrotnego użytku" },
+  { ...galleryItems[5], alt: "Przelicznik walut w React zamieniający funty brytyjskie na inną walutę", title: "Przelicznik walut w React", meta: "React · API walutowe · Walidacja formularza · Aktualne przeliczenia" },
+  { ...galleryItems[6], alt: "Fioletowy menedżer zadań z kartami przesuwanymi metodą drag and drop", title: "Menedżer zadań drag & drop", meta: "React · Vite · Drag and drop · Zarządzanie stanem zadań" },
+  { ...galleryItems[7], alt: "Kalkulator JavaScript z panelem historii obliczeń", title: "Kalkulator JavaScript", meta: "JavaScript · Historia obliczeń · Responsywny interfejs" },
+  { ...galleryItems[8], alt: "Interaktywna kula Three.js obracana przez użytkownika", title: "Interaktywna kula Three.js", meta: "Three.js · WebGL · Interaktywne 3D · Sterowanie wskaźnikiem" },
+  { ...galleryItems[9], alt: "Kalkulator BMI JavaScript na tle owoców", title: "Kalkulator BMI", meta: "JavaScript · Walidacja formularza · Dynamiczne wyniki obliczeń" },
+  { ...galleryItems[10], alt: "Przelicznik walut JavaScript z kwotą i wyborem walut", title: "Przelicznik walut JavaScript", meta: "JavaScript · Obsługa formularza · Walidacja danych · Przeliczanie walut" },
+  { ...galleryItems[11], alt: "Gra w kółko i krzyżyk w React pokazująca zwycięską linię", title: "Kółko i krzyżyk w React", meta: "React · Stan gry · Wykrywanie zwycięzcy · Interaktywny interfejs" },
 ] as const;
 
 export function FunctionsGallery({ language = "en" }: { language?: Language }) {
@@ -85,7 +134,7 @@ export function FunctionsGallery({ language = "en" }: { language?: Language }) {
     <div
       className={`factory-gallery factory-gallery-marquee${activeIndex !== null ? " is-paused" : ""}`}
       role="region"
-      aria-label={pl ? "Wybrane koncepcje RobyFunctions" : "Selected RobyFunctions concepts"}
+      aria-label={pl ? "Wybrane projekty RobyFunctions" : "Selected RobyFunctions projects"}
       onMouseLeave={() => setActiveIndex(null)}
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
@@ -111,7 +160,7 @@ export function FunctionsGallery({ language = "en" }: { language?: Language }) {
                   onMouseLeave={() => setActiveIndex((current) => current === index ? null : current)}
                   onFocus={() => setActiveIndex(index)}
                   onClick={() => setLightboxIndex(index)}
-                  aria-label={`${pl ? "Otwórz koncepcję" : "Open concept"} ${index + 1}: ${item.title}`}
+                  aria-label={`${pl ? "Otwórz projekt" : "Open project"} ${index + 1}: ${item.title}`}
                 >
                   <span className="factory-gallery-marquee-image">
                     <Image
@@ -142,7 +191,7 @@ export function FunctionsGallery({ language = "en" }: { language?: Language }) {
               <strong>{items[activeIndex].title}</strong>
               <p>{items[activeIndex].meta}</p>
               <span className="factory-gallery-marquee-hint">
-                {pl ? "Kliknij, aby otworzyć pełną grafikę" : "Click to open the full image"}
+                {pl ? "Kliknij, aby otworzyć pełny zrzut" : "Click to open the full screenshot"}
               </span>
             </div>
           </>
