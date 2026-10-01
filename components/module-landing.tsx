@@ -415,6 +415,10 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
                 ? pl
                   ? "Wybrane certyfikaty potwierdzające ukończone kursy, praktyczne projekty i rozwój w obszarze technologii webowych."
                   : "Selected certificates documenting completed courses, practical projects and continued development in web technology."
+                : credentials && moduleConfig.key === "factory"
+                  ? pl
+                    ? "Dokumenty potwierdzające wykształcenie inżynierskie wspierające projektowanie CAD, pracę z urządzeniami technologicznymi i tworzenie funkcjonalnych rozwiązań."
+                    : "Documents confirming an engineering education supporting CAD design, work with technological equipment and the development of functional solutions."
                 : credentials && moduleConfig.key === "fusion"
                   ? pl
                     ? "Dokumenty potwierdzające wykształcenie inżynierskie w zakresie mechaniki i budowy maszyn oraz specjalizację w programowaniu obrabiarek i urządzeń technologicznych."

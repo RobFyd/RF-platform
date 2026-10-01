@@ -67,39 +67,42 @@ const functionsCredentials: readonly Credential[] = [
   },
 ];
 
-const fusionCredentialsEn: readonly Credential[] = [
-  {
-    title: "BEng in Mechanics and Machine Construction",
-    issuer: "Koszalin University of Technology · Faculty of Mechanical Engineering",
-    issued: "2013",
-    href: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.pdf"),
-    preview: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.webp"),
-  },
-  {
-    title: "Mechanical Engineering Coursework Completion",
-    issuer: "Koszalin University of Technology · Faculty of Mechanical Engineering",
-    issued: "2013",
-    href: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.pdf"),
-    preview: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.webp"),
-  },
-];
+const engineeringDiplomaEn: Credential = {
+  title: "BEng in Mechanics and Machine Construction",
+  issuer: "Koszalin University of Technology · Faculty of Mechanical Engineering",
+  issued: "2013",
+  href: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.webp"),
+};
 
-const fusionCredentialsPl: readonly Credential[] = [
-  {
-    title: "Dyplom inżyniera mechaniki i budowy maszyn",
-    issuer: "Politechnika Koszalińska · Wydział Mechaniczny",
-    issued: "2013",
-    href: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.pdf"),
-    preview: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.webp"),
-  },
-  {
-    title: "Ukończenie programu kształcenia inżynierskiego",
-    issuer: "Politechnika Koszalińska · Wydział Mechaniczny",
-    issued: "2013",
-    href: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.pdf"),
-    preview: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.webp"),
-  },
-];
+const engineeringCourseworkEn: Credential = {
+  title: "Mechanical Engineering Coursework Completion",
+  issuer: "Koszalin University of Technology · Faculty of Mechanical Engineering",
+  issued: "2013",
+  href: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.webp"),
+};
+
+const engineeringDiplomaPl: Credential = {
+  title: "Dyplom inżyniera mechaniki i budowy maszyn",
+  issuer: "Politechnika Koszalińska · Wydział Mechaniczny",
+  issued: "2013",
+  href: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.webp"),
+};
+
+const engineeringCourseworkPl: Credential = {
+  title: "Ukończenie programu kształcenia inżynierskiego",
+  issuer: "Politechnika Koszalińska · Wydział Mechaniczny",
+  issued: "2013",
+  href: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.webp"),
+};
+
+const factoryCredentialsEn: readonly Credential[] = [engineeringDiplomaEn, engineeringCourseworkEn];
+const factoryCredentialsPl: readonly Credential[] = [engineeringDiplomaPl, engineeringCourseworkPl];
+const fusionCredentialsEn: readonly Credential[] = [engineeringDiplomaEn];
+const fusionCredentialsPl: readonly Credential[] = [engineeringDiplomaPl];
 
 const shared = {
   factory: {
@@ -142,6 +145,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["Custom 3D Printing", "CAD Design", "Reverse Engineering", "Prototyping", "Cosplay Parts", "Functional Replacement Parts"],
       process: ["Define the need", "Design and validate", "Print and refine"],
       credentialAreas: ["CAD & design", "Additive manufacturing", "Engineering & production"],
+      credentials: factoryCredentialsEn,
     },
     {
       ...shared.fusion,
@@ -176,6 +180,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["Druk 3D na zamówienie", "Projektowanie CAD", "Inżynieria odwrotna", "Prototypowanie", "Elementy cosplay", "Funkcjonalne części zamienne"],
       process: ["Określenie potrzeby", "Projekt i weryfikacja", "Druk i dopracowanie"],
       credentialAreas: ["CAD i projektowanie", "Technologie przyrostowe", "Inżynieria i produkcja"],
+      credentials: factoryCredentialsPl,
     },
     {
       ...shared.fusion,
