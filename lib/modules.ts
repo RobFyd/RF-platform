@@ -67,6 +67,43 @@ const functionsCredentials: readonly Credential[] = [
   },
 ];
 
+const engineeringDiplomaEn: Credential = {
+  title: "BEng in Mechanics and Machine Construction",
+  issuer: "Koszalin University of Technology · Faculty of Mechanical Engineering",
+  issued: "2013",
+  href: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.webp"),
+};
+
+const engineeringCourseworkEn: Credential = {
+  title: "Mechanical Engineering Coursework Completion",
+  issuer: "Koszalin University of Technology · Faculty of Mechanical Engineering",
+  issued: "2013",
+  href: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.webp"),
+};
+
+const engineeringDiplomaPl: Credential = {
+  title: "Dyplom inżyniera mechaniki i budowy maszyn",
+  issuer: "Politechnika Koszalińska · Wydział Mechaniczny",
+  issued: "2013",
+  href: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/mechanical-engineering-diploma-robert-fydrych.webp"),
+};
+
+const engineeringCourseworkPl: Credential = {
+  title: "Ukończenie programu kształcenia inżynierskiego",
+  issuer: "Politechnika Koszalińska · Wydział Mechaniczny",
+  issued: "2013",
+  href: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/mechanical-engineering-programme-completion-robert-fydrych.webp"),
+};
+
+const factoryCredentialsEn: readonly Credential[] = [engineeringDiplomaEn, engineeringCourseworkEn];
+const factoryCredentialsPl: readonly Credential[] = [engineeringDiplomaPl, engineeringCourseworkPl];
+const fusionCredentialsEn: readonly Credential[] = [engineeringDiplomaEn];
+const fusionCredentialsPl: readonly Credential[] = [engineeringDiplomaPl];
+
 const shared = {
   factory: {
     key: "factory",
@@ -108,6 +145,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["Custom 3D Printing", "CAD Design", "Reverse Engineering", "Prototyping", "Cosplay Parts", "Functional Replacement Parts"],
       process: ["Define the need", "Design and validate", "Print and refine"],
       credentialAreas: ["CAD & design", "Additive manufacturing", "Engineering & production"],
+      credentials: factoryCredentialsEn,
     },
     {
       ...shared.fusion,
@@ -118,6 +156,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["TIG Welding", "Stainless Steel", "Aluminium", "Fabrication", "Technical Drawings", "Production and Repair Work"],
       process: ["Review requirements", "Prepare and fabricate", "Inspect and finish"],
       credentialAreas: ["Welding qualifications", "Fabrication & inspection", "Safety & compliance"],
+      credentials: fusionCredentialsEn,
     },
     {
       ...shared.functions,
@@ -141,6 +180,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["Druk 3D na zamówienie", "Projektowanie CAD", "Inżynieria odwrotna", "Prototypowanie", "Elementy cosplay", "Funkcjonalne części zamienne"],
       process: ["Określenie potrzeby", "Projekt i weryfikacja", "Druk i dopracowanie"],
       credentialAreas: ["CAD i projektowanie", "Technologie przyrostowe", "Inżynieria i produkcja"],
+      credentials: factoryCredentialsPl,
     },
     {
       ...shared.fusion,
@@ -151,6 +191,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["Spawanie TIG", "Stal nierdzewna", "Aluminium", "Produkcja konstrukcji", "Rysunki techniczne", "Produkcja i naprawy"],
       process: ["Analiza wymagań", "Przygotowanie i wykonanie", "Kontrola i wykończenie"],
       credentialAreas: ["Kwalifikacje spawalnicze", "Produkcja i kontrola", "Bezpieczeństwo i zgodność"],
+      credentials: fusionCredentialsPl,
     },
     {
       ...shared.functions,
