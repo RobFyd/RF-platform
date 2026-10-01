@@ -113,6 +113,7 @@ function ProfileIcon({ name }: { name: ProfileIconName }) {
 export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingProps) {
   const pl = language === "pl";
   const credentials = moduleConfig.credentials;
+  const credentialPlaceholdersBefore = moduleConfig.credentialPlaceholdersBefore ?? [];
   const functionsProfileLinks = [
     {
       name: "GitHub",
@@ -430,6 +431,23 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
           </div>
 
           <div className={`credentials-grid${credentials ? " credentials-grid-filled" : ""}`}>
+            {credentialPlaceholdersBefore.map((area, index) => (
+              <article className="credential-card" key={`placeholder-${area}`}>
+                <div className="credential-card-topline">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span>{pl ? "Miejsce na dokument" : "Document placeholder"}</span>
+                </div>
+                <div className="credential-document" aria-hidden="true">
+                  <span />
+                </div>
+                <h3>{area}</h3>
+                <p>
+                  {pl
+                    ? "Certyfikat lub dyplom zostanie dodany tutaj."
+                    : "A certificate or diploma will be added here."}
+                </p>
+              </article>
+            ))}
             {credentials
               ? credentials.map((credential, index) => (
                   <a
@@ -441,7 +459,7 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
                     aria-label={`${pl ? "Otwórz certyfikat" : "Open certificate"}: ${credential.title} (PDF)`}
                   >
                     <div className="credential-card-topline">
-                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <span>{String(credentialPlaceholdersBefore.length + index + 1).padStart(2, "0")}</span>
                       <span>PDF · {credential.issued}</span>
                     </div>
                     <div className="credential-preview">

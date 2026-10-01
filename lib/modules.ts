@@ -26,6 +26,7 @@ export type ModuleConfig = {
   services: readonly string[];
   process: readonly string[];
   credentialAreas: readonly string[];
+  credentialPlaceholdersBefore?: readonly string[];
   credentials?: readonly Credential[];
 };
 
@@ -156,6 +157,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["TIG Welding", "Stainless Steel", "Aluminium", "Fabrication", "Technical Drawings", "Production and Repair Work"],
       process: ["Review requirements", "Prepare and fabricate", "Inspect and finish"],
       credentialAreas: ["Welding qualifications", "Fabrication & inspection", "Safety & compliance"],
+      credentialPlaceholdersBefore: ["Welding qualifications", "Fabrication & inspection"],
       credentials: fusionCredentialsEn,
     },
     {
@@ -191,6 +193,7 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["Spawanie TIG", "Stal nierdzewna", "Aluminium", "Produkcja konstrukcji", "Rysunki techniczne", "Produkcja i naprawy"],
       process: ["Analiza wymagań", "Przygotowanie i wykonanie", "Kontrola i wykończenie"],
       credentialAreas: ["Kwalifikacje spawalnicze", "Produkcja i kontrola", "Bezpieczeństwo i zgodność"],
+      credentialPlaceholdersBefore: ["Kwalifikacje spawalnicze", "Produkcja i kontrola"],
       credentials: fusionCredentialsPl,
     },
     {
