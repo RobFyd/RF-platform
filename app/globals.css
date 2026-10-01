@@ -1550,11 +1550,17 @@ html[data-theme="light"] .panel-link:focus-visible {
   transform: translateY(-0.3rem);
 }
 
+.module-page-factory .credential-preview,
+.module-page-fusion .credential-preview,
 .module-page-functions .credential-preview {
   transform: scale(0.52);
   transform-origin: center;
 }
 
+.module-page-factory .credential-card-link:hover .credential-preview,
+.module-page-factory .credential-card-link:focus-visible .credential-preview,
+.module-page-fusion .credential-card-link:hover .credential-preview,
+.module-page-fusion .credential-card-link:focus-visible .credential-preview,
 .module-page-functions .credential-card-link:hover .credential-preview,
 .module-page-functions .credential-card-link:focus-visible .credential-preview {
   border-color: rgb(var(--module-accent-rgb) / 0.55);
