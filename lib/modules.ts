@@ -116,6 +116,38 @@ const engineeringCourseworkTranslationPl: Credential = {
   preview: assetPath("/certificates/mechanical-engineering-coursework-translation-en-robert-fydrych.webp"),
 };
 
+const responsibleWeldingCoordinatorEn: Credential = {
+  title: "Responsible Welding Coordinator - Basic Level",
+  issuer: "Weld-Qual - historical qualification, expired in 2021",
+  issued: "2018",
+  href: assetPath("/certificates/responsible-welding-coordinator-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/responsible-welding-coordinator-robert-fydrych.webp"),
+};
+
+const tigWeldingQualificationsEn: Credential = {
+  title: "TIG Welding Qualifications - ISO 9606-1",
+  issuer: "WQ Inspection & Certification - four historical certificates, expired in 2020",
+  issued: "2017",
+  href: assetPath("/certificates/tig-welding-qualifications-iso-9606-1-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/tig-welding-qualifications-iso-9606-1-robert-fydrych.webp"),
+};
+
+const responsibleWeldingCoordinatorPl: Credential = {
+  title: "Koordynator spawalniczy - poziom podstawowy",
+  issuer: "Weld-Qual - kwalifikacja historyczna, ważna do 2021",
+  issued: "2018",
+  href: assetPath("/certificates/responsible-welding-coordinator-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/responsible-welding-coordinator-robert-fydrych.webp"),
+};
+
+const tigWeldingQualificationsPl: Credential = {
+  title: "Kwalifikacje spawalnicze TIG - ISO 9606-1",
+  issuer: "WQ Inspection & Certification - cztery historyczne certyfikaty, ważne do 2020",
+  issued: "2017",
+  href: assetPath("/certificates/tig-welding-qualifications-iso-9606-1-robert-fydrych.pdf"),
+  preview: assetPath("/certificates/tig-welding-qualifications-iso-9606-1-robert-fydrych.webp"),
+};
+
 const factoryCredentialsEn: readonly Credential[] = [
   engineeringDiplomaEn,
   engineeringCourseworkTranslationEn,
@@ -126,8 +158,16 @@ const factoryCredentialsPl: readonly Credential[] = [
   engineeringCourseworkTranslationPl,
   engineeringCourseworkPl,
 ];
-const fusionCredentialsEn: readonly Credential[] = [engineeringDiplomaEn];
-const fusionCredentialsPl: readonly Credential[] = [engineeringDiplomaPl];
+const fusionCredentialsEn: readonly Credential[] = [
+  responsibleWeldingCoordinatorEn,
+  tigWeldingQualificationsEn,
+  engineeringDiplomaEn,
+];
+const fusionCredentialsPl: readonly Credential[] = [
+  responsibleWeldingCoordinatorPl,
+  tigWeldingQualificationsPl,
+  engineeringDiplomaPl,
+];
 
 const shared = {
   factory: {
@@ -181,7 +221,6 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["TIG Welding", "Stainless Steel", "Aluminium", "Fabrication", "Technical Drawings", "Production and Repair Work"],
       process: ["Review requirements", "Prepare and fabricate", "Inspect and finish"],
       credentialAreas: ["Welding qualifications", "Fabrication & inspection", "Safety & compliance"],
-      credentialPlaceholdersBefore: ["Welding qualifications", "Fabrication & inspection"],
       credentials: fusionCredentialsEn,
     },
     {
@@ -217,7 +256,6 @@ export const modules: Record<Language, readonly ModuleConfig[]> = {
       services: ["Spawanie TIG", "Stal nierdzewna", "Aluminium", "Produkcja konstrukcji", "Rysunki techniczne", "Produkcja i naprawy"],
       process: ["Analiza wymagań", "Przygotowanie i wykonanie", "Kontrola i wykończenie"],
       credentialAreas: ["Kwalifikacje spawalnicze", "Produkcja i kontrola", "Bezpieczeństwo i zgodność"],
-      credentialPlaceholdersBefore: ["Kwalifikacje spawalnicze", "Produkcja i kontrola"],
       credentials: fusionCredentialsPl,
     },
     {

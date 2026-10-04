@@ -422,8 +422,8 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
                     : "Documents confirming an engineering education supporting CAD design, work with technological equipment and the development of functional solutions."
                 : credentials && moduleConfig.key === "fusion"
                   ? pl
-                    ? "Dokumenty potwierdzające wykształcenie inżynierskie w zakresie mechaniki i budowy maszyn oraz specjalizację w programowaniu obrabiarek i urządzeń technologicznych."
-                    : "Documents confirming an engineering education in mechanics and machine construction, with a specialisation in programming machine tools and technological equipment."
+                    ? "Historyczne kwalifikacje spawalnicze TIG, ukończone szkolenie z koordynacji spawalniczej oraz wykształcenie inżynierskie. Daty ważności pozostają widoczne w dokumentach."
+                    : "Historical TIG welding qualifications, completed welding coordination training and engineering education. Original validity dates remain visible in the documents."
                 : pl
                   ? "Miejsce na dokumenty potwierdzające kwalifikacje, ukończone szkolenia i rozwój zawodowy."
                   : "A dedicated place for qualifications, completed training and continued professional development."}
