@@ -12,7 +12,6 @@ const galleryItems = [
     title: "//RF Platform",
     meta: "Next.js · React · TypeScript · Tailwind CSS · Modular multilingual portfolio",
     projectUrl: "https://robfyd.github.io/RF-platform/",
-    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/movie-browser.webp"),
@@ -20,7 +19,6 @@ const galleryItems = [
     title: "Movie Browser",
     meta: "React · Movie data · Search · Categories · Favourites",
     projectUrl: "https://waltad.github.io/movies-browser-panama/",
-    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/robyfactory-website.webp"),
@@ -28,7 +26,6 @@ const galleryItems = [
     title: "RobyFactory Website",
     meta: "Responsive product website · HTML · CSS · JavaScript · Visual storytelling",
     projectUrl: "https://robfyd.github.io/robyfactory-website/",
-    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/shop-in-react.webp"),
@@ -36,7 +33,6 @@ const galleryItems = [
     title: "Shop in React",
     meta: "React · React Router · REST API · Netlify · Render",
     projectUrl: "https://shop-by-react.netlify.app",
-    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/todo-list-react.webp"),
@@ -44,7 +40,6 @@ const galleryItems = [
     title: "To-do List",
     meta: "React · Task filtering · Completion states · Reusable components",
     projectUrl: "https://robfyd.github.io/To-Do-List-in-React/",
-    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/currency-converter-react.webp"),
@@ -52,15 +47,13 @@ const galleryItems = [
     title: "React Currency Converter",
     meta: "React · Currency API · Form validation · Live conversion",
     projectUrl: "https://robfyd.github.io/Money-Exchanger-in-React/",
-    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/task-tracker-react-vite.webp"),
     alt: "Purple drag and drop task tracker with movable task cards",
     title: "Drag & Drop Task Tracker",
     meta: "React · Vite · Drag and drop · Task state management",
-    projectUrl: "https://github.com/RobFyd/Task-Tracker",
-    projectLinkType: "source",
+    projectUrl: "https://task-tracker-react-app.netlify.app/",
   },
   {
     src: assetPath("/functions/javascript-calculator.webp"),
@@ -68,7 +61,6 @@ const galleryItems = [
     title: "JavaScript Calculator",
     meta: "JavaScript · Calculation history · Responsive interface",
     projectUrl: "https://robfyd.github.io/Calculator-JS/",
-    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/threejs-sphere.webp"),
@@ -76,7 +68,6 @@ const galleryItems = [
     title: "Interactive Three.js Sphere",
     meta: "Three.js · WebGL · Interactive 3D · Pointer controls",
     projectUrl: "https://robfyd.github.io/ThreeJS-Sphere/",
-    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/javascript-bmi-calculator.webp"),
@@ -84,7 +75,6 @@ const galleryItems = [
     title: "BMI Calculator",
     meta: "JavaScript · Form validation · Dynamic calculation results",
     projectUrl: "https://robfyd.github.io/BMI-Calculator/",
-    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/javascript-currency-converter.webp"),
@@ -92,7 +82,6 @@ const galleryItems = [
     title: "JavaScript Currency Converter",
     meta: "JavaScript · Form handling · Input validation · Currency conversion",
     projectUrl: "https://robfyd.github.io/Exchange-Rate-Calculator/",
-    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/react-tic-tac-toe.webp"),
@@ -100,7 +89,6 @@ const galleryItems = [
     title: "React Tic-Tac-Toe",
     meta: "React · Game state · Winner detection · Interactive interface",
     projectUrl: "https://robfyd.github.io/Tic-Tac-Toe-in-React/",
-    projectLinkType: "live",
   },
 ] as const;
 
@@ -247,13 +235,9 @@ export function FunctionsGallery({ language = "en" }: { language?: Language }) {
                   href={items[lightboxIndex].projectUrl}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`${items[lightboxIndex].projectLinkType === "source"
-                    ? (pl ? "Zobacz kod projektu" : "View project source")
-                    : (pl ? "Otwórz projekt" : "Open live project")}: ${items[lightboxIndex].title}`}
+                  aria-label={`${pl ? "Otwórz projekt" : "Open live project"}: ${items[lightboxIndex].title}`}
                 >
-                  {items[lightboxIndex].projectLinkType === "source"
-                    ? (pl ? "Zobacz kod na GitHubie" : "View code on GitHub")
-                    : (pl ? "Otwórz projekt" : "Open live project")}
+                  {pl ? "Otwórz projekt" : "Open live project"}
                 </a>
               </div>
               <span>
