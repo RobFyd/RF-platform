@@ -11,72 +11,96 @@ const galleryItems = [
     alt: "Landing page of the modular RF portfolio platform",
     title: "//RF Platform",
     meta: "Next.js · React · TypeScript · Tailwind CSS · Modular multilingual portfolio",
+    projectUrl: "https://robfyd.github.io/RF-platform/",
+    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/movie-browser.webp"),
     alt: "Movie Browser interface showing a searchable grid of popular films",
     title: "Movie Browser",
     meta: "React · Movie data · Search · Categories · Favourites",
+    projectUrl: "https://waltad.github.io/movies-browser-panama/",
+    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/robyfactory-website.webp"),
     alt: "RobyFactory product website presenting 3D printed designs",
     title: "RobyFactory Website",
     meta: "Responsive product website · HTML · CSS · JavaScript · Visual storytelling",
+    projectUrl: "https://robfyd.github.io/robyfactory-website/",
+    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/shop-in-react.webp"),
     alt: "Shop in React interface with a hero image and product cards",
     title: "Shop in React",
     meta: "React · React Router · REST API · Netlify · Render",
+    projectUrl: "https://shop-by-react.netlify.app",
+    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/todo-list-react.webp"),
     alt: "React task list with search, filtering and completion controls",
     title: "To-do List",
     meta: "React · Task filtering · Completion states · Reusable components",
+    projectUrl: "https://robfyd.github.io/To-Do-List-in-React/",
+    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/currency-converter-react.webp"),
     alt: "React money exchanger converting British pounds into another currency",
     title: "React Currency Converter",
     meta: "React · Currency API · Form validation · Live conversion",
+    projectUrl: "https://robfyd.github.io/Money-Exchanger-in-React/",
+    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/task-tracker-react-vite.webp"),
     alt: "Purple drag and drop task tracker with movable task cards",
     title: "Drag & Drop Task Tracker",
     meta: "React · Vite · Drag and drop · Task state management",
+    projectUrl: "https://github.com/RobFyd/Task-Tracker",
+    projectLinkType: "source",
   },
   {
     src: assetPath("/functions/javascript-calculator.webp"),
     alt: "JavaScript calculator with a calculation history panel",
     title: "JavaScript Calculator",
     meta: "JavaScript · Calculation history · Responsive interface",
+    projectUrl: "https://robfyd.github.io/Calculator-JS/",
+    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/threejs-sphere.webp"),
     alt: "Interactive Three.js sphere that can be rotated by the user",
     title: "Interactive Three.js Sphere",
     meta: "Three.js · WebGL · Interactive 3D · Pointer controls",
+    projectUrl: "https://robfyd.github.io/ThreeJS-Sphere/",
+    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/javascript-bmi-calculator.webp"),
     alt: "JavaScript BMI calculator displayed over a fruit background",
     title: "BMI Calculator",
     meta: "JavaScript · Form validation · Dynamic calculation results",
+    projectUrl: "https://robfyd.github.io/BMI-Calculator/",
+    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/javascript-currency-converter.webp"),
     alt: "JavaScript currency converter with amount and currency selectors",
     title: "JavaScript Currency Converter",
     meta: "JavaScript · Form handling · Input validation · Currency conversion",
+    projectUrl: "https://robfyd.github.io/Exchange-Rate-Calculator/",
+    projectLinkType: "live",
   },
   {
     src: assetPath("/functions/react-tic-tac-toe.webp"),
     alt: "React tic-tac-toe game showing the winning line",
     title: "React Tic-Tac-Toe",
     meta: "React · Game state · Winner detection · Interactive interface",
+    projectUrl: "https://robfyd.github.io/Tic-Tac-Toe-in-React/",
+    projectLinkType: "live",
   },
 ] as const;
 
@@ -218,6 +242,19 @@ export function FunctionsGallery({ language = "en" }: { language?: Language }) {
               <div>
                 <strong>{items[lightboxIndex].title}</strong>
                 <span>{items[lightboxIndex].meta}</span>
+                <a
+                  className="factory-lightbox-project-link"
+                  href={items[lightboxIndex].projectUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${items[lightboxIndex].projectLinkType === "source"
+                    ? (pl ? "Zobacz kod projektu" : "View project source")
+                    : (pl ? "Otwórz projekt" : "Open live project")}: ${items[lightboxIndex].title}`}
+                >
+                  {items[lightboxIndex].projectLinkType === "source"
+                    ? (pl ? "Zobacz kod na GitHubie" : "View code on GitHub")
+                    : (pl ? "Otwórz projekt" : "Open live project")}
+                </a>
               </div>
               <span>
                 {String(lightboxIndex + 1).padStart(2, "0")} /{" "}
