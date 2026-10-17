@@ -35,7 +35,15 @@ const disciplines = {
 export function HomePage({ language }: { language: Language }) {
   const pl = language === "pl";
   return (
-    <>
+    <div className="home-page">
+      <div className="module-ambient home-ambient" aria-hidden="true">
+        <span className="module-ambient-points" />
+        <span className="module-ambient-streak module-ambient-streak-a" />
+        <span className="module-ambient-streak module-ambient-streak-b" />
+        <span className="module-ambient-streak module-ambient-streak-c" />
+        <span className="module-ambient-orb module-ambient-orb-a" />
+        <span className="module-ambient-orb module-ambient-orb-b" />
+      </div>
       <SiteHeader language={language} />
       <main>
         <InteractiveHero>
@@ -173,6 +181,6 @@ export function HomePage({ language }: { language: Language }) {
         </section>
       </main>
       <SiteFooter language={language} />
-    </>
+    </div>
   );
 }
