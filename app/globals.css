@@ -1102,15 +1102,23 @@ html[data-theme="light"] .panel-link:focus-visible {
 
 /* Module landing pages */
 
-.module-page {
+.module-page,
+.home-page {
   --module-accent: #79b8ff;
   --module-accent-rgb: 121 184 255;
   position: relative;
   isolation: isolate;
 }
 
+.home-page {
+  --module-accent: rgb(var(--rf-gold-rgb));
+  --module-accent-rgb: var(--rf-gold-rgb);
+}
+
 .module-page > main,
-.module-page > .site-footer {
+.module-page > .site-footer,
+.home-page > main,
+.home-page > .site-footer {
   position: relative;
   z-index: 1;
 }
@@ -1221,6 +1229,48 @@ html[data-theme="light"] .panel-link:focus-visible {
   animation-duration: 23s;
 }
 
+.home-ambient {
+  opacity: 0.68;
+}
+
+.home-ambient .module-ambient-points {
+  background-position: 2rem 1rem, 10rem 5rem, 17rem 12rem;
+  background-size: 12rem 10rem, 21rem 17rem, 34rem 27rem;
+  opacity: 0.3;
+}
+
+.home-ambient .module-ambient-streak-a {
+  --streak-angle: -7deg;
+  top: 14%;
+  width: clamp(28rem, 56vw, 60rem);
+  animation-duration: 29s;
+}
+
+.home-ambient .module-ambient-streak-b {
+  --streak-angle: 5deg;
+  top: 47%;
+  animation-duration: 36s;
+}
+
+.home-ambient .module-ambient-streak-c {
+  --streak-angle: -12deg;
+  top: 78%;
+  width: clamp(24rem, 50vw, 54rem);
+  animation-duration: 32s;
+}
+
+.home-ambient .module-ambient-orb-a {
+  top: 16%;
+  right: 15%;
+  width: clamp(12rem, 21vw, 21rem);
+}
+
+.home-ambient .module-ambient-orb-b {
+  bottom: 14%;
+  left: 13%;
+  width: clamp(9rem, 15vw, 15rem);
+}
+
 @keyframes module-ambient-streak-drift {
   0% {
     opacity: 0;
@@ -1265,6 +1315,10 @@ html[data-theme="light"] .panel-link:focus-visible {
 
 html[data-theme="light"] .module-ambient {
   opacity: 0.46;
+}
+
+html[data-theme="light"] .home-ambient {
+  opacity: 0.38;
 }
 
 @media (prefers-reduced-motion: reduce) {
