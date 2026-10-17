@@ -260,6 +260,14 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
         } as React.CSSProperties
       }
     >
+      <div className="module-ambient" aria-hidden="true">
+        <span className="module-ambient-points" />
+        <span className="module-ambient-streak module-ambient-streak-a" />
+        <span className="module-ambient-streak module-ambient-streak-b" />
+        <span className="module-ambient-streak module-ambient-streak-c" />
+        <span className="module-ambient-orb module-ambient-orb-a" />
+        <span className="module-ambient-orb module-ambient-orb-b" />
+      </div>
       <SiteHeader language={language} currentPath={moduleConfig.href} />
       <main>
         <section className="module-hero" aria-labelledby="module-title">
