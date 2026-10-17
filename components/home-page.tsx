@@ -63,9 +63,11 @@ export function HomePage({ language }: { language: Language }) {
                   priority
                 />
               </span>
-              <span className="hero-statement">{pl ? "Jedna nazwa." : "One name."}</span>
-              <span className="hero-statement hero-statement-muted">
-                {pl ? "Trzy kierunki." : "Three directions."}
+              <span className="hero-statements">
+                <span className="hero-statement">{pl ? "Jedna nazwa." : "One name."}</span>
+                <span className="hero-statement hero-statement-muted">
+                  {pl ? "Trzy kierunki." : "Three directions."}
+                </span>
               </span>
             </h1>
             <div className="hero-bottom">
