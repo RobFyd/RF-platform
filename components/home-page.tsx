@@ -5,6 +5,7 @@ import { InteractiveHero } from "@/components/interactive-hero";
 import { ModulePanels } from "@/components/module-panels";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ContactForm } from "@/components/contact-form";
 import type { Language } from "@/lib/i18n";
 
 const disciplines = {
@@ -171,15 +172,16 @@ export function HomePage({ language }: { language: Language }) {
         <section className="contact-section" id="contact">
           <p className="section-index">[ 04 — {pl ? "Kontakt" : "Contact"} ]</p>
           <div className="contact-content">
-            <h2>{pl ? "Masz problem, który warto rozwiązać?" : "Have a problem worth solving?"}</h2>
-            <a className="text-link" href="mailto:hello@example.com">
-              {pl ? "Porozmawiajmy" : "Let's talk"}
-              <span aria-hidden="true">↗</span>
-            </a>
+            <div className="contact-intro">
+              <h2>{pl ? "Masz problem, który warto rozwiązać?" : "Have a problem worth solving?"}</h2>
+              <p>
+                {pl
+                  ? "Opisz krótko swój pomysł, projekt albo problem. Odpowiem bezpośrednio na podany adres e-mail."
+                  : "Tell me briefly about your idea, project or problem. I will reply directly to the email address you provide."}
+              </p>
+            </div>
+            <ContactForm language={language} />
           </div>
-          <p className="contact-note">
-            {pl ? "Dane kontaktowe są tymczasowe i zostaną zmienione przed publicznym uruchomieniem strony." : "Contact details are temporary and will be replaced before the public launch."}
-          </p>
         </section>
       </main>
       <SiteFooter language={language} />
