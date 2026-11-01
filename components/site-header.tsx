@@ -36,10 +36,10 @@ export function SiteHeader({ language = "en", currentPath = "/" }: { language?: 
           <span className={language === "pl" ? "is-current" : undefined}>PL</span>
         </Link>
         <ThemeToggle label={copy.themeToggle} />
-        <a className="header-contact" href="mailto:hello@example.com">
+        <Link className="header-contact" href={`${homePath(language)}#contact`}>
           {copy.startProject}
           <span aria-hidden="true">↗</span>
-        </a>
+        </Link>
       </div>
     </header>
   );

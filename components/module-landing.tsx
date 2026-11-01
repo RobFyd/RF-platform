@@ -281,10 +281,10 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
             <p className="eyebrow">{moduleConfig.kicker}</p>
             <h1 id="module-title">{moduleConfig.name}</h1>
             <p>{moduleConfig.longDescription}</p>
-            <a className="module-cta" href="mailto:hello@example.com">
+            <Link className="module-cta" href={`${homePath(language)}#contact`}>
               {pl ? "Omów projekt" : "Discuss a project"}
               <span aria-hidden="true">↗</span>
-            </a>
+            </Link>
           </div>
           <div className="module-hero-mark">
             <Image
@@ -571,10 +571,10 @@ export function ModuleLanding({ moduleConfig, language = "en" }: ModuleLandingPr
         <section className="module-bottom-cta">
           <p>{pl ? "Masz na myśli coś konkretnego?" : "Have something specific in mind?"}</p>
           <h2>{pl ? "Zrealizujmy to." : "Let's make it real."}</h2>
-          <a className="text-link" href="mailto:hello@example.com">
+          <Link className="text-link" href={`${homePath(language)}#contact`}>
             {pl ? "Rozpocznij rozmowę" : "Start a conversation"}
             <span aria-hidden="true">↗</span>
-          </a>
+          </Link>
         </section>
       </main>
       <SiteFooter language={language} />
