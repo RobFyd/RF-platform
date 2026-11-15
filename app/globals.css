@@ -1300,6 +1300,14 @@ html[data-theme="light"] .panel-link:focus-visible {
   text-transform: uppercase;
 }
 
+.footer-back-to-top {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
 .site-footer p {
   margin: 0;
 }
